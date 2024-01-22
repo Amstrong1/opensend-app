@@ -58,7 +58,7 @@
     <footer class="w-full h-max">
         @include('layouts.bottom-bar')
     </footer>
-    
+
     @include('sweetalert::alert')
 
     <script src="https://cdn.kkiapay.me/k.js"></script>
@@ -79,10 +79,6 @@
             document.getElementById('balancex').classList.remove("hidden");
         }
 
-        function test() {
-            window.location.replace("./stripe-form");
-        }
-
         function checkPayment() {
             if (document.getElementById('payment_method').value == 'kkiapay') {
                 openKkiapayWidget({
@@ -99,6 +95,22 @@
             if (document.getElementById('payment_method').value == 'stripe') {
                 window.location.replace("/checkout");
             }
+        }
+
+        function copy() {
+            // Sélectionne le contenu de la div
+            var uuid = document.getElementById('uuid');
+            var selection = window.getSelection();
+            var range = document.createRange();
+            range.selectNodeContents(uuid);
+            selection.removeAllRanges();
+            selection.addRange(range);
+
+            // Copie le contenu sélectionné dans le presse-papiers
+            document.execCommand('copy');
+
+            // Désélectionne le texte après la copie
+            selection.removeAllRanges();
         }
     </script>
 </body>
