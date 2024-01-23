@@ -5,6 +5,7 @@ use App\Http\Controllers\TopUpController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\ConfirmController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SendMoneyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +29,11 @@ Route::match(['get', 'post'], '/dashboard', function () {
 Route::match(['get', 'post'], '/confirm', [ConfirmController::class, 'index'])->name('confirm');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/checkout', [StripeController::class, 'checkout'])->name('checkout');
     Route::post('/session', [StripeController::class, 'session'])->name('session');
     Route::get('/success', [StripeController::class, 'success'])->name('success');
+
+    Route::get('/send', [SendMoneyController::class, 'create'])->name('send.create');
+    Route::post('/send', [SendMoneyController::class, 'store'])->name('send.store');
 
     Route::post('/topup', [TopUpController::class, 'index'])->name('topup');
 

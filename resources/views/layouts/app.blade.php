@@ -43,6 +43,7 @@
             font-family: "Jumper";
         }
     </style>
+    @laravelPWA
 </head>
 
 <body class="antialiased min-h-screen bg-gray-100 dark:bg-gray-900">
