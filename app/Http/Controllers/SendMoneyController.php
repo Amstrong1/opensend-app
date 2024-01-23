@@ -21,6 +21,7 @@ class SendMoneyController extends Controller
 
         if ($request->amount >= $user->balance) {
             $cashOut = new CashOut();
+            $cashOut->user_id = Auth::id();
             $cashOut->amount = $request->amount;
             $cashOut->uuid = $request->uuid;
             $cashOut->motif = $request->motif;
