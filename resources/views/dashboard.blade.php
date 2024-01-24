@@ -104,7 +104,7 @@
 
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 m-8">
         <div class="overflow-hidden shadow-sm rounded-lg p-6 mx-4" style="background-color: #0c3147">
-            <a href="">
+            <a href="{{ route('withdraw.create') }}">
                 <div class="text-center text-white text-sm font-bold">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-6 h-6 block m-auto">
