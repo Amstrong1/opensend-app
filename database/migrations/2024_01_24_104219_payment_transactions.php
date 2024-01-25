@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('destination');
             $table->string('transfer_group');
             $table->string('status');
+            $table->string('stripe_transfer_id');
             $table->timestamps();
         });
     }

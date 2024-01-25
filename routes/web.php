@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TopUpController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\ConfirmController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WithDrawController;
 use App\Http\Controllers\SendMoneyController;
@@ -35,6 +36,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/send', [SendMoneyController::class, 'create'])->name('send.create');
     Route::post('/send', [SendMoneyController::class, 'store'])->name('send.store');
+    
+    Route::get('/history', [HistoryController::class, 'index'])->name('history');
 
     Route::get('/withdraw', [WithDrawController::class, 'create'])->name('withdraw.create');
     Route::post('/withdraw', [WithDrawController::class, 'store'])->name('withdraw.store');

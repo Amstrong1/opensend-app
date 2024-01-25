@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CashOut;
-use App\Http\Requests\CashOutRequest;
+use App\Models\Cashout;
+use App\Http\Requests\CashoutRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -15,12 +15,12 @@ class SendMoneyController extends Controller
         return view('send');
     }
 
-    public function store(CashOutRequest $request)
+    public function store(CashoutRequest $request)
     {
         $user = User::find(Auth::id());
 
         if ($request->amount >= $user->balance) {
-            $cashOut = new CashOut();
+            $cashOut = new Cashout();
             $cashOut->user_id = Auth::id();
             $cashOut->amount = $request->amount;
             $cashOut->uuid = $request->uuid;

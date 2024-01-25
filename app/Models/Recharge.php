@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Recharge extends Model
 {
     use HasFactory;
+
+    protected $append = ['formatted_date'];
+
+    public function getFormattedDateAttribute()
+    {
+        return getFormattedDate($this->created_at);
+    }  
 }
