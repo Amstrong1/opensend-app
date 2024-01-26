@@ -1,4 +1,4 @@
-<section class="py-4 block fixed inset-x-0 bottom-0 z-10 shadow rounded-t-2xl bg-white dark:bg-slate-700">
+<section class="py-2 block fixed inset-x-0 bottom-0 z-10 shadow rounded-t-2xl bg-white dark:bg-slate-700">
     <div class="flex justify-between">
         <a href="/" class="w-full dark:text-white text-slate-700 inline-block text-center pt-2 pb-1">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 block mx-auto">
