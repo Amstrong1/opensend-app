@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\TopUpController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\ConfirmController;
@@ -36,7 +37,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/send', [SendMoneyController::class, 'create'])->name('send.create');
     Route::post('/send', [SendMoneyController::class, 'store'])->name('send.store');
-    
+
     Route::get('/history', [HistoryController::class, 'index'])->name('history');
 
     Route::get('/withdraw', [WithDrawController::class, 'create'])->name('withdraw.create');
@@ -47,6 +48,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+    Route::get('/messages', [ChatController::class, 'fetchMessages']);
+    Route::post('/messages', [ChatController::class, 'sendMessage']);
 });
 
 require __DIR__ . '/auth.php';
