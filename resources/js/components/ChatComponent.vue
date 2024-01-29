@@ -1,7 +1,10 @@
 <template>
     <div class="min-h-screen flex flex-col">
-        <div class="dark:text-white overflow-y-auto flex-1 text-sm" v-for="message in messages" :key="message.id">
-            <strong>{{ message.user.name }}:</strong> {{ message.content }}
+        <div class="dark:text-white overflow-y-auto flex-1 text-sm">
+            <div v-for="message in messages" :key="message.id">
+                <strong>{{ message.user.name }} :</strong> {{ message.content }}
+                <p v-if="message.reply !== null"><strong>OpenSend :</strong> {{ message.reply }}</p>
+            </div>
         </div>
         <div class="fixed left-0 right-0 bottom-20 rounded w-full bg-gray-100 dark:bg-gray-900 mx-1">
             <div class="flex items-center justify-center w-full">
