@@ -4,4 +4,4 @@
 
 <img src="{{ asset('img/logo.jpg') }}" class="dark:hidden w-20" alt="logo">
 
-<img src="{{ asset('img/logo-dark.jpg') }}" class="hidden dark:block w-20" alt="logo">
+<img src="{{ asset('img/logo-dark.png') }}" class="hidden dark:block w-28" alt="logo">
