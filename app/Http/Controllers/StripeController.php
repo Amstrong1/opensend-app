@@ -57,7 +57,7 @@ class StripeController extends Controller
         $user = User::find(Auth::id()); 
         $user->balance = $user->balance + $recharge->amount;    
         $user->save();
-        Alert::success('Success', 'Recharge Successful!');
-        return redirect()->route('dashboard');
+        // Alert::success('Success', 'Recharge Successful!');
+        return redirect('done');
     }
 }

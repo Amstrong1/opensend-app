@@ -29,8 +29,8 @@ class WithDrawController extends Controller
             $paymentTransaction->status = 'pending';
             $paymentTransaction->save();
 
-            Alert::success('success', 'Votre requete est en cours d\'execution');
-            return redirect('dashboard');
+            // Alert::success('success', 'Votre requete est en cours d\'execution');
+            return redirect('done');
         } else {
             Alert::error('error', 'Solde insuffisant');
             return back();

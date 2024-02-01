@@ -32,8 +32,8 @@ class TransfertValidation extends Controller
                 $receiver->save();
             }
 
-            Alert::success('success', 'Transaction effectué');
-            return redirect('dashboard');
+            // Alert::success('success', 'Transaction effectué');
+            return redirect('done');
         } else {
             Alert::error('error', 'Mot de passe incorrect');
             return back();

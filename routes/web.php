@@ -37,6 +37,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/session', [StripeController::class, 'session'])->name('session');
     Route::get('/success', [StripeController::class, 'success'])->name('success');
 
+    Route::get('/done', function() {
+        return view('success');
+    })->name('done');
+
     Route::get('/send', [SendMoneyController::class, 'create'])->name('send.create');
     Route::post('/send', [SendMoneyController::class, 'store'])->name('send.store');
 

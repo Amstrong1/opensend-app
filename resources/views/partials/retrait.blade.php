@@ -10,8 +10,8 @@
         <tbody>
             @foreach ($payment_transactions as $payment_transaction)
                 <tr>
-                    <td class="dark:text-white p-2">{{ $payment_transaction->amount . ' ' . $payment_transaction->currency }}</td>
-                    <td class="dark:text-white p-2">{{ $payment_transaction->formatted_date }}</td>
+                    <td class="text-xs dark:text-white p-2">{{ $payment_transaction->amount . ' ' . $payment_transaction->currency }}</td>
+                    <td class="text-xs dark:text-white p-2">{{ $payment_transaction->formatted_date }}</td>
                 </tr>
             @endforeach
         </tbody>
