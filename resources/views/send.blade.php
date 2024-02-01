@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto px-8 m-8">
-        <h1>Envoyer de l'argent</h1>
+        <h1 class="text-center">Envoyer de l'argent</h1>
         <form action="" method="post">
             @csrf
             <div class="mt-4">

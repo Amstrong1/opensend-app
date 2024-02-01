@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\UUIDController;
 use App\Http\Controllers\TopUpController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\ConfirmController;
@@ -42,6 +43,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/withdraw', [WithDrawController::class, 'create'])->name('withdraw.create');
     Route::post('/withdraw', [WithDrawController::class, 'store'])->name('withdraw.store');
+
+    Route::get('/uuid', [UUIDController::class, 'index'])->name('uuid.index');
 
     Route::post('/topup', [TopUpController::class, 'index'])->name('topup');
 
