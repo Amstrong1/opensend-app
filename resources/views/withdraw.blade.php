@@ -64,5 +64,11 @@
                 </div>
             </x-modal>
         </form>
+
+        <div class="overflow-hidden shadow-sm rounded-lg">
+            <div class="my-4 text-white">
+                Vérifiez bien les informations avant de soumettre le formulaire. Votre compte OpenSend sera débité du montant saisis. Vous pouvez le récupérer en espèce auprès du partenaire agréé. C'est rapide et sécurisé.
+            </div>
+        </div>
     </div>
 </x-app-layout>

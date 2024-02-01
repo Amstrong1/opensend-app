@@ -52,9 +52,9 @@
             </x-modal>
         </form>    
 
-        <div class="overflow-hidden shadow-sm rounded-lg mx-4">
-            <div class="p-6 text-white">
-                Votre UUID représente votre identifiant OpenSend unique. Elle vous permet de sécuriser votre compte et de recevoir des transferts.
+        <div class="overflow-hidden shadow-sm rounded-lg">
+            <div class="my-4 text-white">
+                Vérifie bien les informations avant de soumettre le formulaire. Votre compte OpenSend sera débité du montant saisis. Le destinataire recevra une notification indiquant qu'il a reçu de l'argent. C'est rapide et sécurisé.
             </div>
         </div>
     </div>
