@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto px-8 m-8">
-        <h1 class="text-center">Envoyer de l'argent</h1>
+        <h1 class="text-center text-black dark:text-white uppercase">Envoyer de l'argent</h1>
         <form action="" method="post">
             @csrf
             <div class="mt-4">
@@ -50,6 +50,12 @@
                     </x-primary-button>
                 </div>
             </x-modal>
-        </form>
+        </form>    
+
+        <div class="overflow-hidden shadow-sm rounded-lg mx-4">
+            <div class="p-6 text-white">
+                Votre UUID représente votre identifiant OpenSend unique. Elle vous permet de sécuriser votre compte et de recevoir des transferts.
+            </div>
+        </div>
     </div>
 </x-app-layout>

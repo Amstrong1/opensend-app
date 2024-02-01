@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto px-8 m-8">
-        <h1 class="text-center">Retirer de l'argent</h1>
+        <h1 class="text-center text-black dark:text-white uppercase">Retirer de l'argent</h1>
         <form action="" method="post">
             @csrf
             <div class="mt-4">
@@ -22,7 +22,7 @@
                 <x-input-error :messages="$errors->get('currency')" class="mt-2" />
             </div>
             <div class="mt-4">
-                <x-input-label for="destination" :value="__('Stripe ID')" />
+                <x-input-label for="destination" :value="__('ID Opensend du partenaire Agréé')" />
                 <x-text-input id="destination" class="block mt-1 w-full" type="text" name="destination"
                     :value="old('destination')" required />
                 <x-input-error :messages="$errors->get('destination')" class="mt-2" />
