@@ -25,7 +25,6 @@ class CashoutRequest extends FormRequest
             'amount' => 'required|numeric',
             'uuid' => 'required|string',
             'motif' => 'string|required',
-            'password' => 'required',
         ];
     }
 }

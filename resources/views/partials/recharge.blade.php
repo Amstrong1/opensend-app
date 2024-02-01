@@ -11,9 +11,9 @@
         <tbody>
             @foreach ($recharges as $recharge)
                 <tr class="text-black text-start dark:text-white border-b border-gray-700">
-                    <td class="dark:text-white p-2">{{ $recharge->amount . ' USD' }}</td>
-                    <td class="dark:text-white p-2">{{ $recharge->payment_method }}</td>
-                    <td class="dark:text-white p-2">{{ $recharge->formatted_date }}</td>
+                    <td class="text-xs dark:text-white p-2">{{ $recharge->amount . ' USD' }}</td>
+                    <td class="text-xs dark:text-white p-2">{{ $recharge->payment_method }}</td>
+                    <td class="text-xs dark:text-white p-2">{{ $recharge->formatted_date }}</td>
                 </tr>
             @endforeach
         </tbody>

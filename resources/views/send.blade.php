@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto px-8 m-8">
         <h1 class="text-center text-black dark:text-white uppercase">Envoyer de l'argent</h1>
-        <form action="" method="post">
+        <form action="{{ route('send.store') }}" method="post">
             @csrf
             <div class="mt-4">
                 <x-input-label for="amount" :value="__('Montant')" />
@@ -23,12 +23,12 @@
             </div>
 
             <div class="flex items-center mt-4">
-                <x-primary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-modal')" type="button" class="w-full">
+                <x-primary-button class="w-full">
                     {{ __('Send') }}
                 </x-primary-button>
             </div>
 
-            <x-modal class="m-4" name="confirm-modal" :show="$errors->isNotEmpty()" focusable>
+            {{-- <x-modal class="m-4" name="confirm-modal" :show="$errors->isNotEmpty()" focusable>
                 @csrf
 
                 <div class="m-6">
@@ -49,12 +49,12 @@
                         {{ __('Confirm') }}
                     </x-primary-button>
                 </div>
-            </x-modal>
+            </x-modal> --}}
         </form>    
 
         <div class="overflow-hidden shadow-sm rounded-lg">
             <div class="my-4 text-black dark:text-white">
-                Vérifie bien les informations avant de soumettre le formulaire. Votre compte OpenSend sera débité du montant saisis. Le destinataire recevra une notification indiquant qu'il a reçu de l'argent. C'est rapide et sécurisé.
+                Vérifiez bien les informations avant de soumettre le formulaire. Votre compte OpenSend sera débité du montant saisis. Le destinataire recevra une notification indiquant qu'il a reçu de l'argent. C'est rapide et sécurisé.
             </div>
         </div>
     </div>

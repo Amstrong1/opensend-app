@@ -10,6 +10,7 @@ use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WithDrawController;
 use App\Http\Controllers\SendMoneyController;
+use App\Http\Controllers\TransfertValidation;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/withdraw', [WithDrawController::class, 'store'])->name('withdraw.store');
 
     Route::get('/uuid', [UUIDController::class, 'index'])->name('uuid.index');
+
+    Route::post('/transfer-validation', [TransfertValidation::class, 'store'])->name('transfer-validation');
 
     Route::post('/topup', [TopUpController::class, 'index'])->name('topup');
 

@@ -9,20 +9,10 @@ class PaymentTransaction extends Model
 {
     use HasFactory;
 
-    protected $append = ['formatted_date', 'uuid_user'];
+    protected $append = ['formatted_date'];
 
     public function getFormattedDateAttribute()
     {
         return getFormattedDate($this->created_at);
     }  
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-
-    public function getUuidUserAttribute()
-    {
-        return $this->user->uuid;
-    }
 }
