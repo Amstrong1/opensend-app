@@ -17,7 +17,7 @@ class StripeController extends Controller
 
         $productname = 'Recharge' . Auth::id();
         $totalprice = $request->get('amount');
-        $two0 = "";
+        $two0 = "00";
         $total = "$totalprice$two0";
 
         session()->put('amount', $total);
@@ -48,7 +48,7 @@ class StripeController extends Controller
     {
         $recharge = new Recharge();
         $recharge->user_id = Auth::id();
-        $recharge->amount = session()->get('amount');
+        $recharge->amount = rmtwochar(session()->get('amount'));
         $recharge->payment_method = 'stripe';
         $recharge->save();
 

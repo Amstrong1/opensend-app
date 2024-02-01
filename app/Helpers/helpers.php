@@ -16,3 +16,10 @@ function gen_code()
         'abcdefghijklmnopqrstuvwxyzABCEFGHIJKLMNOPQRSTUVWXYZ0123456789'
     ), 1, 6);
 }
+
+function rmtwochar($chaine) {
+    if (strlen($chaine) >= 2) {
+        $chaine = substr($chaine, 0, -2);
+        return $chaine;
+    }
+}
