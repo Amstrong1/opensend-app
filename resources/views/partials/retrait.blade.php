@@ -2,16 +2,16 @@
 @if (count($cashouts) > 0)
     <table>
         <thead>
-            <tr>
-                <th class="text-center w-1/2 dark:text-white">Montant</th>
-                <th class="text-center w-1/2 dark:text-white">Date</th>
+            <tr class="text-left text-xs text-gray-500 uppercase bg-gray-50 dark:bg-gray-900 dark:text-gray-400">
+                <th class="w-1/3 p-2">Montant</th>
+                <th class="w-1/3 p-2">Date</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($cashouts as $cashout)
                 <tr>
-                    <td class="dark:text-white">{{ $cashout->amount . ' ' . $cashout->currency }}</td>
-                    <td class="dark:text-white">{{ $cashout->formatted_date }}</td>
+                    <td class="dark:text-white p-2">{{ $cashout->amount . ' ' . $cashout->currency }}</td>
+                    <td class="dark:text-white p-2">{{ $cashout->formatted_date }}</td>
                 </tr>
             @endforeach
         </tbody>

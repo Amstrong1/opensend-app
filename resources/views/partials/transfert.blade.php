@@ -2,20 +2,20 @@
 @if (count($payment_transactions) > 0)
     <table>
         <thead>
-            <tr>
-                <th>Montant</th>
-                <th>Destinataire</th>
-                <th>Motif</th>
-                <th>Date</th>
+            <tr class="text-left text-xs text-gray-500 uppercase bg-gray-50 dark:bg-gray-900 dark:text-gray-400">
+                <th class="w-1/3 p-2">Montant</th>
+                <th class="w-1/3 p-2">Destinataire</th>
+                <th class="w-1/3 p-2">Motif</th>
+                <th class="w-1/3 p-2">Date</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($payment_transactions as $payment_transaction)
-                <tr>
-                    <td>{{ $payment_transaction->amount . ' USD' }}</td>
-                    <td>{{ $payment_transaction->uuid_user }}</td>
-                    <td>{{ $payment_transaction->motif }}</td>
-                    <td>{{ $payment_transaction->formatted_date }}</td>
+                <tr class="text-black text-start dark:text-white border-b border-gray-700">
+                    <td class="dark:text-white p-2">{{ $payment_transaction->amount . ' USD' }}</td>
+                    <td class="dark:text-white p-2">{{ $payment_transaction->uuid_user }}</td>
+                    <td class="dark:text-white p-2">{{ $payment_transaction->motif }}</td>
+                    <td class="dark:text-white p-2">{{ $payment_transaction->formatted_date }}</td>
                 </tr>
             @endforeach
         </tbody>
