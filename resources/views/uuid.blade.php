@@ -38,7 +38,7 @@
             </div>
 
             <div class="overflow-hidden shadow-sm rounded-lg mx-4">
-                <div class="p-6 text-white">
+                <div class="p-6 text-black dark:text-white">
                     Votre UUID représente votre identifiant OpenSend unique. Elle vous permet de sécuriser votre compte et de recevoir des transferts.
                 </div>
             </div>

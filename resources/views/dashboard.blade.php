@@ -2,7 +2,7 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 m-8">
         <div class="mx-4">
             <div class="px-2 text-black dark:text-white">
-                <h1 class="text-white">{{ __('Bonjour , ' . Auth::user()->name) }}</h1>
+                <h1 class="text-black dark:text-white">{{ __('Bonjour , ' . Auth::user()->name) }}</h1>
             </div>
         </div>
     </div>
