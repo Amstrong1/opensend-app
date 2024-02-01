@@ -12,7 +12,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command(Commands\ProcessPayments::class)->everySecond();
+        // $schedule->command(Commands\ProcessPayments::class)->everySecond();
     }
 
     /**
