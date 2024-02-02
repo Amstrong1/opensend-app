@@ -1,16 +1,16 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto px-8 m-8">
-        <h1 class="text-center text-black dark:text-white uppercase">Retirer de l'argent</h1>
+        <h1 class="text-center text-black dark:text-white uppercase">{{ 'message.cashout' }}</h1>
         <form action="" method="post">
             @csrf
             <div class="mt-4">
-                <x-input-label for="amount" :value="__('Montant')" />
+                <x-input-label for="amount" :value="__('message.amount')" />
                 <x-text-input id="amount" class="block mt-1 w-full" type="number" name="amount" :value="old('amount')"
                     step="0.01" required autofocus />
                 <x-input-error :messages="$errors->get('amount')" class="mt-2" />
             </div>
             <div class="mt-4">
-                <x-input-label for="currency" :value="__('Currency')" />
+                <x-input-label for="currency" :value="__('message.currency')" />
                 <select id="currency" type="text" name="currency" :value="old('currency')" required
                     class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full p-2">
                     <option value="USD">USD</option>
@@ -22,7 +22,7 @@
                 <x-input-error :messages="$errors->get('currency')" class="mt-2" />
             </div>
             <div class="mt-4">
-                <x-input-label for="destination" :value="__('ID Opensend du partenaire Agréé')" />
+                <x-input-label for="destination" :value="__('message.partner')" />
                 <x-text-input id="destination" class="block mt-1 w-full" type="text" name="destination"
                     :value="old('destination')" required />
                 <x-input-error :messages="$errors->get('destination')" class="mt-2" />
@@ -37,7 +37,7 @@
             <div class="flex items-center mt-4">
                 <x-primary-button x-data="" x-on:click.prevent="$dispatch('open-modal', 'confirm-modal')"
                     type="button" class="w-full">
-                    {{ __('Send') }}
+                    {{ __('message.send') }}
                 </x-primary-button>
             </div>
 
@@ -45,7 +45,7 @@
                 @csrf
 
                 <div class="m-6">
-                    <x-input-label for="password" value="{{ __('Votre mot de passe') }}"
+                    <x-input-label for="password" value="{{ __('message.password') }}"
                         class="text-gray-900 dark:text-gray-100" />
 
                     <x-text-input id="password" name="password" type="password" class="mt-1 block w-full" required />
@@ -55,11 +55,11 @@
 
                 <div class="m-6 flex justify-end">
                     <x-danger-button type="button" x-on:click="$dispatch('close')">
-                        {{ __('Cancel') }}
+                        {{ __('message.cancel') }}
                     </x-danger-button>
 
                     <x-primary-button class="ms-3">
-                        {{ __('Confirm') }}
+                        {{ __('message.confirm') }}
                     </x-primary-button>
                 </div>
             </x-modal>
@@ -67,7 +67,7 @@
 
         <div class="overflow-hidden shadow-sm rounded-lg">
             <div class="my-4 text-black dark:text-white">
-                Vérifiez bien les informations avant de soumettre le formulaire. Votre compte OpenSend sera débité du montant saisis. Vous pouvez le récupérer en espèce auprès du partenaire agréé. C'est rapide et sécurisé.
+                {{ __('message.withdrawDesc') }}
             </div>
         </div>
     </div>

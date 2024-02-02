@@ -7,6 +7,7 @@ use App\Http\Controllers\TopUpController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\ConfirmController;
 use App\Http\Controllers\HistoryController;
+use App\Http\Controllers\LangController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WithDrawController;
 use App\Http\Controllers\SendMoneyController;
@@ -23,45 +24,50 @@ use App\Http\Controllers\TransfertValidation;
 |
 */
 
-Route::match(['get', 'post'], '/', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified']);
+Route::middleware('setLocale')->group(function () {
 
-Route::match(['get', 'post'], '/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    Route::match(['get', 'post'], '/', function () {
+        return view('dashboard');
+    })->middleware(['auth', 'verified']);
 
-Route::match(['get', 'post'], '/confirm', [ConfirmController::class, 'index'])->name('confirm');
+    Route::match(['get', 'post'], '/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::post('/session', [StripeController::class, 'session'])->name('session');
-    Route::get('/success', [StripeController::class, 'success'])->name('success');
+    Route::match(['get', 'post'], '/confirm', [ConfirmController::class, 'index'])->name('confirm');
 
-    Route::get('/done', function() {
-        return view('success');
-    })->name('done');
+    Route::post('/lang', [LangController::class, 'index'])->name('lang');
 
-    Route::get('/send', [SendMoneyController::class, 'create'])->name('send.create');
-    Route::post('/send', [SendMoneyController::class, 'store'])->name('send.store');
+    Route::middleware('auth')->group(function () {
+        Route::post('/session', [StripeController::class, 'session'])->name('session');
+        Route::get('/success', [StripeController::class, 'success'])->name('success');
 
-    Route::get('/history', [HistoryController::class, 'index'])->name('history');
+        Route::get('/done', function () {
+            return view('success');
+        })->name('done');
 
-    Route::get('/withdraw', [WithDrawController::class, 'create'])->name('withdraw.create');
-    Route::post('/withdraw', [WithDrawController::class, 'store'])->name('withdraw.store');
+        Route::get('/send', [SendMoneyController::class, 'create'])->name('send.create');
+        Route::post('/send', [SendMoneyController::class, 'store'])->name('send.store');
 
-    Route::get('/uuid', [UUIDController::class, 'index'])->name('uuid.index');
+        Route::get('/history', [HistoryController::class, 'index'])->name('history');
 
-    Route::post('/transfer-validation', [TransfertValidation::class, 'store'])->name('transfer-validation');
+        Route::get('/withdraw', [WithDrawController::class, 'create'])->name('withdraw.create');
+        Route::post('/withdraw', [WithDrawController::class, 'store'])->name('withdraw.store');
 
-    Route::post('/topup', [TopUpController::class, 'index'])->name('topup');
+        Route::get('/uuid', [UUIDController::class, 'index'])->name('uuid.index');
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::post('/transfer-validation', [TransfertValidation::class, 'store'])->name('transfer-validation');
 
-    Route::get('/chat', [ChatController::class, 'index'])->name('chat');
-    Route::get('/messages', [ChatController::class, 'fetchMessages']);
-    Route::post('/messages', [ChatController::class, 'sendMessage']);
+        Route::post('/topup', [TopUpController::class, 'index'])->name('topup');
+
+        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+        Route::get('/chat', [ChatController::class, 'index'])->name('chat');
+        Route::get('/messages', [ChatController::class, 'fetchMessages']);
+        Route::post('/messages', [ChatController::class, 'sendMessage']);
+    });
 });
 
 require __DIR__ . '/auth.php';

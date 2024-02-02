@@ -3,7 +3,7 @@
     <table>
         <thead>
             <tr class="text-left text-xs text-gray-500 uppercase bg-gray-50 dark:bg-gray-900 dark:text-gray-400">
-                <th class="w-1/3 p-2">Montant</th>
+                <th class="w-1/3 p-2">{{ __('message.amount') }}</th>
                 <th class="w-1/3 p-2">Date</th>
             </tr>
         </thead>
@@ -17,5 +17,5 @@
         </tbody>
     </table>
 @else
-    <span class="dark:text-white">Aucune données à afficher</span>
+    <span class="dark:text-white">{{ __('message.empty') }}</span>
 @endif

@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="grid grid-cols-1 gap-2">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mx-8 my-4 w-full">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-4 w-full">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm rounded-lg mx-4 text-center">
                 <div class="p-6 text-white">
 
@@ -25,21 +25,21 @@
                     </div>
 
                     <div class="p-4 text-white bg-gray-800">
-                        <div id="balancex">{{ __('Mon UUID') }}</div>
+                        <div id="balancex">{{ __('UUID') }}</div>
                         <div id="balance" class="hidden">{{ __("$ " . Auth::user()->openid) }}</div>
                         <input type="hidden" id="uuid" value="{{ Auth::user()->openid }}">
                     </div>
 
                     <button onclick="copy()"
                         style="background-color: #ee273b" class="p-2 rounded text-white w-full">
-                        <p>{{ __('Copier') }}</p>
+                        <p>{{ __('message.copy') }}</p>
                     </button>
                 </div>
             </div>
 
             <div class="overflow-hidden shadow-sm rounded-lg mx-4">
                 <div class="p-6 text-black dark:text-white">
-                    Votre UUID représente votre identifiant OpenSend unique. Elle vous permet de sécuriser votre compte et de recevoir des transferts.
+                    {{ __('message.uuidDesc') }}
                 </div>
             </div>
         </div>

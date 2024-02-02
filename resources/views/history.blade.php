@@ -8,19 +8,19 @@
                     <a href="#tabs-cashin"
                         class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-4 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
                         data-te-toggle="pill" data-te-target="#tabs-cashin" data-te-nav-active role="tab"
-                        aria-controls="tabs-cashin" aria-selected="true">Recharge</a>
+                        aria-controls="tabs-cashin" aria-selected="true">{{ __('message.hRecharge') }}</a>
                 </li>
                 <li role="presentation" class="flex-auto text-center">
                     <a href="#tabs-transfert"
                         class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-4 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
                         data-te-toggle="pill" data-te-target="#tabs-transfert" role="tab"
-                        aria-controls="tabs-transfert" aria-selected="false">Transfert</a>
+                        aria-controls="tabs-transfert" aria-selected="false">{{ __('message.hTransfert') }}</a>
                 </li>
                 <li role="presentation" class="flex-auto text-center">
                     <a href="#tabs-cashout"
                         class="my-2 block border-x-0 border-b-2 border-t-0 border-transparent px-4 pb-3.5 pt-4 text-xs font-medium uppercase leading-tight text-neutral-500 hover:isolate hover:border-transparent hover:bg-neutral-100 focus:isolate focus:border-transparent data-[te-nav-active]:border-primary data-[te-nav-active]:text-primary dark:text-neutral-400 dark:hover:bg-transparent dark:data-[te-nav-active]:border-primary-400 dark:data-[te-nav-active]:text-primary-400"
                         data-te-toggle="pill" data-te-target="#tabs-cashout" role="tab"
-                        aria-controls="tabs-cashout" aria-selected="false">Retrait</a>
+                        aria-controls="tabs-cashout" aria-selected="false">{{ __('message.hRetrait') }}</a>
                 </li>
             </ul>
 

@@ -2,13 +2,13 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 m-8">
         <div class="mx-4">
             <div class="px-2 text-black dark:text-white">
-                <h1 class="text-black dark:text-white">{{ __('Bonjour , ' . Auth::user()->name) }}</h1>
+                <h1 class="text-black dark:text-white"> {{ __('message.hello') }} {{ __(' , ' . Auth::user()->name) }}</h1>
             </div>
         </div>
     </div>
 
     <div class="grid grid-cols-2 gap-2 px-4">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mx-8 my-2">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
             <div class="overflow-hidden shadow-sm rounded-lg p-6 w-full h-full" style="background-color: #ed6a06">
                 <a href="#" x-data="" x-on:click.prevent="$dispatch('open-modal', 'topup-modal')">
                     <div class="text-white text-sm">
@@ -18,14 +18,14 @@
                                 d="M7.5 7.5h-.75A2.25 2.25 0 0 0 4.5 9.75v7.5a2.25 2.25 0 0 0 2.25 2.25h7.5a2.25 2.25 0 0 0 2.25-2.25v-7.5a2.25 2.25 0 0 0-2.25-2.25h-.75m-6 3.75 3 3m0 0 3-3m-3 3V1.5m6 9h.75a2.25 2.25 0 0 1 2.25 2.25v7.5a2.25 2.25 0 0 1-2.25 2.25h-7.5a2.25 2.25 0 0 1-2.25-2.25v-.75" />
                         </svg>
                         <p class="text-sm">
-                            Recharger mon compte opensend
+                            {{ __('message.cashin') }}
                         </p>
                     </div>
                 </a>
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mx-8 my-2">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
             <div class="overflow-hidden shadow-sm rounded-lg p-6 w-full h-full" style="background-color: #d4d44d">
                 <a href="{{ route('withdraw.create') }}">
                     <div class="text-white text-sm">
@@ -35,7 +35,7 @@
                                 d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z" />
                         </svg>
                         <p class="text-sm">
-                            Effectuer un retrait
+                            {{ __('message.cashout') }}
                         </p>
                     </div>
                 </a>
@@ -44,7 +44,7 @@
     </div>
 
     <div class="grid grid-cols-2 gap-2 px-4">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mx-8 my-2">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
             <div class="overflow-hidden shadow-sm rounded-lg p-6 w-full h-full" style="background-color: #845223">
                 <a href="{{ route('send.create') }}">
                     <div class="text-white text-sm">
@@ -54,13 +54,13 @@
                                 d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5" />
                         </svg>
                         <p class="text-sm">
-                            Transférer de l'argent
+                            {{ __('message.transfert') }}
                         </p>
                     </div>
                 </a>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mx-8 my-2">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
             <div class="overflow-hidden shadow-sm rounded-lg p-6 w-full h-full" style="background-color: #008638">
                 <a href="{{ route('uuid.index') }}">
                     <div class="text-white text-sm">
@@ -70,7 +70,7 @@
                                 d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25" />
                         </svg>
                         <p class="text-sm">
-                            Voir mon identifiant
+                            {{ __('message.myID') }}
                         </p>
                     </div>
                 </a>
@@ -79,10 +79,10 @@
     </div>
 
     <div class="grid grid-cols-1 gap-2">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mx-8 my-4 w-full">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-4 w-full">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm rounded-lg mx-4 text-center">
                 <div class="p-6 text-white" style="background-color: #f7951d">
-                    <div id="balancex">{{ __('Mon Solde') }}</div>
+                    <div id="balancex">{{ __('message.sold') }}</div>
                     <div id="balance" class="hidden">{{ __("$ " . Auth::user()->balance) }}</div>
                     <div class="font-bold">
                         <div class="relative h-0" style="bottom: 25px; left: 85%">
@@ -118,21 +118,21 @@
         <form id="topup" action="{{ route('session') }}" onsubmit="return checkPayment()" method="post">
             @csrf
             <div class="m-6">
-                <x-input-label for="payment_method" value="{{ __('Montant') }}"
+                <x-input-label for="payment_method" value="{{ __('message.mPayment') }}"
                     class="text-gray-900 dark:text-gray-100" />
 
                 <select name="payment_method" id="payment_method" required
                     class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full p-2">
                     <option value="">{{ __('Choisir une méthode de paiement') }}</option>
-                    <option value="stripe">{{ __('Stripe') }}</option>
-                    <option value="kkiapay">{{ __('KKiapay') }}</option>
+                    <option value="stripe">{{ __('message.vCard') }}</option>
+                    <option value="kkiapay">{{ __('Mobile Money') }}</option>
                 </select>
 
                 <x-input-error :messages="$errors->get('payment_method')" class="mt-2" />
             </div>
 
             <div class="m-6">
-                <x-input-label for="amount" value="{{ __('Montant') }}"
+                <x-input-label for="amount" value="{{ __('message.amount') }}"
                     class="text-gray-900 dark:text-gray-100" />
 
                 <x-text-input id="amount" name="amount" type="number" class="mt-1 block w-full" required />
@@ -142,11 +142,11 @@
 
             <div class="m-6 flex justify-end">
                 <x-danger-button type="button" x-on:click="$dispatch('close')">
-                    {{ __('Cancel') }}
+                    {{ __('message.cancel') }}
                 </x-danger-button>
 
                 <x-primary-button class="ms-3">
-                    {{ __('Confirm') }}
+                    {{ __('message.Confirm') }}
                 </x-primary-button>
             </div>
         </form>
