@@ -46,7 +46,7 @@ return [
     'receiver' => 'Destinataire',
     'cause' => 'Motif',
 
-    'codeMail' => "Votre de code confirmation suite à la création d'un compte avec l'adresse",
+    'codeMail' => "Votre code de confirmation suite à la création d'un compte avec l'adresse",
     'dismissMail' => "Si vous n'êtes pas à l'origine de cette action ignorez ce message",
     'regard' => "Cordialement",
 

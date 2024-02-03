@@ -4,7 +4,7 @@
 
         <!-- Name -->
         <div>
-            <x-input-label for="code" :value="__('message.code' . ' ' . session('code'))" />
+            <x-input-label for="code" :value="__('message.code')" />
             <x-text-input id="code" class="block mt-1 w-full" type="text" name="code" :value="old('code')" required
                 autofocus autocomplete="code" />
             <x-input-error :messages="$errors->get('code')" class="mt-2" />
