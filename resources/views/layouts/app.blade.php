@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html x-data="{ darkMode: false }" :class="{ 'dark': darkMode }" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
