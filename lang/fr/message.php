@@ -81,11 +81,29 @@ return [
     'saved' => 'Enregistré',
 
     'logout' => 'Déconnexion',
+    'login' => 'Se connecter',
+    'register' => 'S\'inscrire',
 
     'upPassword' => 'Mettre à jour le mot de passe',
     'notPassword' => 'Assurez-vous que votre compte utilise un mot de passe long et aléatoire pour rester sécurisé.',
     'curPassword' => 'Mot de passe actuel',
     'newPassword' => 'Nouveau mot de passe',
     'confPassword' => 'Confirmer le mot de passe',
+
+    'pForgot' => 'Mot de passe oublié?',
+    'aAccount' => 'Déja inscrit?',
+    'nAccount' => 'Créer un nouveau compte?',
+
+    'address' => 'Adresse',
+    'cid' => 'Carte d\'identité valide',
+
+    'confPassReq' => 'Ceci est une zone sécurisée de l\'application. Veuillez confirmer votre mot de passe avant de continuer.',
+    'fPassReq' => 'Mot de passe oublié ? Aucun problème. Indiquez simplement votre adresse e-mail et nous vous enverrons un lien de réinitialisation du mot de passe qui vous permettra d\'en choisir un nouveau.',
+    'resLink' => 'Envoyer le lien de réinitialisation du mot de passe par e-mail',
+    'resPassword' => 'Réinitialiser le mot de passe',
+
+    'verEmail' => 'Merci de vous être inscrit ! Avant de commencer, pourriez-vous vérifier votre adresse e-mail en cliquant sur le lien que nous venons de vous envoyer par e-mail ? Si vous n\'avez pas reçu l\'e-mail, nous vous en enverrons volontiers un autre.',
+    'linkSent' => 'Un nouveau lien de vérification a été envoyé à l\'adresse e-mail que vous avez fournie lors de l\'inscription.',
+    'reverEmail' => 'Renvoyer l\'e-mail de vérification',
 
 ];

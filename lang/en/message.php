@@ -81,6 +81,8 @@ return [
     'saved' => 'Saved',
 
     'logout' => 'Log Out',
+    'login' => 'Log In',
+    'register' => 'Register',
 
     'upPassword' => 'Update Password',
     'notPassword' => 'Ensure your account is using a long, random password to stay secure.',
@@ -88,4 +90,19 @@ return [
     'newPassword' => 'New Password',
     'confPassword' => 'Confirm Password',
 
+    'pForgot' => 'Forgot your password?',
+    'nAccount' => 'Create new account?',
+    'aAccount' => 'Already have an account?',
+
+    'address' => 'Address',
+    'cid' => 'Valid identity card',
+
+    'confPassReq' => 'This is a secure area of the application. Please confirm your password before continuing.',
+    'fPassReq' => 'Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.',
+    'resLink' => 'Email Password Reset Link',
+    'resPassword' => 'Reset Password',
+
+    'verEmail' => 'Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.',
+    'linkSent' => 'A new verification link has been sent to the email address you provided during registration.',
+    'reverEmail' => 'Resend Verification Email',
 ];

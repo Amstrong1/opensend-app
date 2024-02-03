@@ -15,7 +15,7 @@
 
         <!-- Password -->
         <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+            <x-input-label for="password" :value="__('message.password')" />
 
             <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
                 autocomplete="current-password" />
@@ -50,7 +50,7 @@
 
         <div class="flex items-center mt-4">
             <x-primary-button class="w-full">
-                {{ __('Log in') }}
+                {{ __('message.login') }}
             </x-primary-button>
         </div>
 
@@ -58,13 +58,13 @@
             @if (Route::has('password.request'))
                 <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                     href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+                    {{ __('message.pForgot') }}
                 </a>
             @endif
             @if (Route::has('register'))
                 <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                     href="{{ route('register') }}">
-                    {{ __('Create new account?') }}
+                    {{ __('message.nAccount') }}
                 </a>
             @endif
         </div>
