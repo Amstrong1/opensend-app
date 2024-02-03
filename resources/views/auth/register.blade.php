@@ -26,6 +26,27 @@
             <x-input-error :messages="$errors->get('tel')" class="mt-2" />
         </div>
 
+        <div class="mt-4">
+            <x-input-label for="country" :value="__('message.country')" />
+            <select id="country" name="country" id="country" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full p-2">
+                @foreach ($pays as $continent => $paysContinent)
+                    <optgroup label="{{ $continent }}">
+                        @foreach ($paysContinent as $value => $label)
+                            <option value="{{ $value }}">{{ $label }}</option>
+                        @endforeach
+                    </optgroup>
+                @endforeach
+            </select>
+        </div>
+
+        <!-- Adress -->
+        <div class="mt-4">
+            <x-input-label for="city" :value="__('message.city')" />
+            <x-text-input id="city" class="block mt-1 w-full" type="text" name="city" :value="old('city')"
+                required autocomplete="username" />
+            <x-input-error :messages="$errors->get('city')" class="mt-2" />
+        </div>
+
         <!-- Adress -->
         <div class="mt-4">
             <x-input-label for="address" :value="__('message.address')" />
@@ -52,8 +73,7 @@
                 autocomplete="new-password" />
 
             <svg id="view1" onclick="showPassword()" xmlns="http://www.w3.org/2000/svg" class="relative h-6 w-6"
-                style="bottom: 35px; left: 85%" fill="none" viewBox="0 0 24 24" stroke="#aaa"
-                stroke-width="2">
+                style="bottom: 35px; left: 85%" fill="none" viewBox="0 0 24 24" stroke="#aaa" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 <path stroke-linecap="round" stroke-linejoin="round"
                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />

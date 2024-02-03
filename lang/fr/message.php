@@ -106,4 +106,6 @@ return [
     'linkSent' => 'Un nouveau lien de vérification a été envoyé à l\'adresse e-mail que vous avez fournie lors de l\'inscription.',
     'reverEmail' => 'Renvoyer l\'e-mail de vérification',
 
+    'country' => 'Pays',
+    'city' => 'Ville',
 ];

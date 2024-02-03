@@ -21,7 +21,46 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $pays = [
+            'Africa' => [
+                'Benin' => 'Benin',
+                'Burkina Faso' => 'Burkina Faso',
+                'Cape Verde' => 'Cape Verde',
+                'Côte d\'Ivoire' => 'Côte d\'Ivoire',
+                'Gambia' => 'Gambia',
+                'Ghana' => 'Ghana',
+                'Guinea' => 'Guinea',
+                'Guinea-Bissau' => 'Guinea-Bissau',
+                'Liberia' => 'Liberia',
+                'Mali' => 'Mali',
+                'Mauritania' => 'Mauritania',
+                'Niger' => 'Niger',
+                'Nigeria' => 'Nigeria',
+                'Senegal' => 'Senegal',
+                'Sierra Leone' => 'Sierra Leone',
+                'Togo' => 'Togo',
+            ],
+
+            'Europe' => [
+                'Austria' => 'Austria',
+                'Belgium' => 'Belgium',
+                'France' => 'France',
+                'Germany' => 'Germany',
+                'Ireland' => 'Ireland',
+                'Luxembourg' => 'Luxembourg',
+                'Netherlands' => 'Netherlands',
+                'Switzerland' => 'Switzerland',
+                'United Kingdom' => 'United Kingdom',
+            ],
+
+            'America' => [
+                'United States' => 'United States',
+                'Canada' => 'Canada',
+            ],
+
+        ];
+
+        return view('auth.register', ['pays' => $pays]);
     }
 
     /**
@@ -33,8 +72,10 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'tel' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
+            'city' => ['required', 'string', 'max:255'],
             'address' => ['required', 'string', 'max:255'],
             'cid' => ['required', 'image', 'max:5000'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
@@ -48,6 +89,8 @@ class RegisteredUserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'tel' => $request->tel,
+            'country' => $request->country,
+            'city' => $request->city,
             'address' => $request->address,
             'cid' => $path,
             'code' => $code,
