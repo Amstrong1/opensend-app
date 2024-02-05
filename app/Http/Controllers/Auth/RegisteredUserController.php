@@ -103,6 +103,12 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Mail::to($user->email)->send(new RegisterMailConfirm($user));
+        
+
+        $admins = User::where('role', 'admin')->get();
+        foreach($admins as $admin) {
+            $admin->notify(new \App\Notifications\NewUserNotification($user));
+        }
 
         return redirect('confirm');
     }

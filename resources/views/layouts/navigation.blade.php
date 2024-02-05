@@ -5,6 +5,17 @@
 
             <!-- Logo -->
             <div class="shrink-0 flex items-center">
+                @if (Route::current()->getName() !== 'dashboard' && !Str::contains(Route::current()->getName(), 'generated::'))
+                    <a href="/">
+                        <button
+                            class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-100 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                            </svg>
+                        </button>
+                    </a>
+                @endif
                 <a href="{{ route('dashboard') }}">
                     <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
                 </a>
@@ -22,7 +33,7 @@
                         </svg>
                     </button>
                 </div>
-                
+
                 <!-- setting -->
                 <div class="-me-2 mx-4 flex items-center">
                     <a href="{{ route('profile.edit') }}">

@@ -1,6 +1,6 @@
 <x-app-layout>
     <div class="max-w-7xl mx-auto px-8 m-8">
-        <h1 class="text-center text-black dark:text-white uppercase">{{ 'message.cashout' }}</h1>
+        <h1 class="text-center text-black dark:text-white uppercase">{{ __('message.cashout') }}</h1>
         <form action="" method="post">
             @csrf
             <div class="mt-4">
@@ -22,10 +22,25 @@
                 <x-input-error :messages="$errors->get('currency')" class="mt-2" />
             </div>
             <div class="mt-4">
-                <x-input-label for="destination" :value="__('message.partner')" />
-                <x-text-input id="destination" class="block mt-1 w-full" type="text" name="destination"
-                    :value="old('destination')" required />
-                <x-input-error :messages="$errors->get('destination')" class="mt-2" />
+                <x-input-label for="way" :value="__('Type de retrait')" />
+                <select id="way" type="text" name="way" :value="old('way')" onchange="showPartner(this)" required
+                    class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full p-2">
+                    <option value="instant">Instantané</option>
+                    <option value="cash">Auprès d'un partenaire</option>
+                </select>
+                <x-input-error :messages="$errors->get('way')" class="mt-2" />
+            </div>
+            <div id="dest1" class="mt-4">
+                <x-input-label for="destination1" :value="__('N° de téléphone')" />
+                <x-text-input id="destination1" class="block mt-1 w-full" type="text" name="destination"
+                    :value="old('destination1')" />
+                <x-input-error :messages="$errors->get('destination1')" class="mt-2" />
+            </div>
+            <div id="dest2" class="mt-4 hidden">
+                <x-input-label for="destination2" :value="__('message.partner')" />
+                <x-text-input id="destination2" class="block mt-1 w-full" type="text" name="destination"
+                    :value="old('destination2')" />
+                <x-input-error :messages="$errors->get('destination2')" class="mt-2" />
             </div>
             {{-- <div class="mt-4">
                 <x-input-label for="transfer_group" :value="__('Transfert group')" />
@@ -72,3 +87,15 @@
         </div>
     </div>
 </x-app-layout>
+
+<script>
+    function showPartner(obj) {
+        if (obj.value == 'cash') {
+            var x = document.getElementById("dest1").style.display = "none";
+            var x = document.getElementById("dest2").style.display = "block";
+        } else {
+            var x = document.getElementById("dest1").style.display = "block";
+            var x = document.getElementById("dest2").style.display = "none";
+        }
+    }
+</script>

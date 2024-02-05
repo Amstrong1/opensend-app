@@ -108,4 +108,15 @@ return [
 
     'country' => 'Pays',
     'city' => 'Ville',
+
+    'newInsc' => 'Nouvelle inscription',
+    'line1' => 'Cher(e) ',
+    'line2' => "Nous vous informons qu'une connexion à votre espace client a été effectuée avec succès. Voici les détails de la connexion : ",
+    'line3' => 'Date et Heure de connexion : ',
+    'line4' => 'Ip de connexion : ',
+    'line5' => 'Si vous êtes l\'auteur de cette connexion, aucune action supplémentaire n\'est nécessaire.',
+    'line6' => 'Si vous n\'êtes pas à l\'origine de cette connexion :',
+    'line7' => '1. Changez votre mot de passe : Modifiez votre mot de passe dès que possible pour sécuriser votre compte.',
+    'line8' => "2. Vérifiez vos informations et activités : Accédez à votre espace client et vérifiez vos informations personnelles ainsi que l'historique des activités pour détecter toute action suspecte.",
+    'line9' => "3. Contactez notre service client : Si vous constatez des activités non autorisées ou si vous avez besoin d'assistance, contactez-nous immédiatement.",
 ];

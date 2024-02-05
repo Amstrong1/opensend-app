@@ -49,25 +49,25 @@ return [
     'codeMail' => "Your confirmation code following the creation of an account with the address",
     'dismissMail' => "If you are not the originator of this action, ignore this message",
     'regard' => "Best regards",
-    
+
     'receiverId' => "Recipient's ID",
     'alertSend' => "Double-check the information before submitting the form. Your OpenSend account will be debited with the entered amount. The recipient will receive a notification indicating they have received money. It's fast and secure.",
-    
+
     'success' => "Operation completed successfully",
     'continue' => "Continue",
-    
+
     'copy' => "Copy",
     'uuidDesc' => "Your UUID represents your unique OpenSend identifier. It allows you to secure your account and receive transfers.",
-    
+
     'withdrawDesc' => "Double-check the information before submitting the form. Your OpenSend account will be debited with the entered amount. You can withdraw it in cash from an authorized partner. It's fast and secure.",
-    
+
     'password' => "Password",
     'currency' => "Currency",
-    'partner' => "OpenSend ID of the Authorized Partner",   
-    
+    'partner' => "OpenSend ID of the Authorized Partner",
+
     'home' => 'Home',
     'history' => 'History',
-    
+
     'profile' => 'Profile',
     'language' => 'Language',
 
@@ -108,4 +108,16 @@ return [
 
     'country' => 'Country',
     'city' => 'City',
+
+    'newInsc' => 'New inscription',
+
+    'line1' => 'Dear ',
+    'line2' => "We inform you that a connection to your client account has been successfully made. Here are the details of the connection:",
+    'line3' => 'Date and Time of connection: ',
+    'line4' => 'Connection IP: ',
+    'line5' => 'If you are the author of this connection, no further action is required.',
+    'line6' => 'If you did not initiate this connection:',
+    'line7' => '1. Change your password: Change your password as soon as possible to secure your account.',
+    'line8' => '2. Check your information and activities: Access your client account and review your personal information and activity history to detect any suspicious actions.',
+    'line9' => '3. Contact our customer service: If you notice unauthorized activities or need assistance, contact us immediately.'
 ];
