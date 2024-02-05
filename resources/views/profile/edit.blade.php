@@ -13,6 +13,8 @@
                     <form method="POST" action="{{ route('lang') }}">
                         @csrf
 
+                        @method('POST')
+
                         <x-input-label for="lang" :value="__('message.language')" />
 
                         <select onchange="this.form.submit()" name="lang" id="lang"
