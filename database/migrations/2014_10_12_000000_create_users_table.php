@@ -16,13 +16,13 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('tel');
-            $table->string('address');
-            $table->string('cid');
+            $table->string('tel')->nullable();
+            $table->string('address')->nullable();
+            $table->string('cid')->nullable();
             $table->string('password');
-            $table->string('code');
+            $table->string('code')->nullable();
             $table->string('balance')->default(0);
-            $table->string('openid');
+            $table->string('openid')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
