@@ -10,11 +10,8 @@
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="max-w-xl">
 
-                    <form method="post" action="{{ route('lang') }}">
+                    <form action="{{ route('lang') }}" method="post">
                         @csrf
-
-                        @method('POST')
-
                         <x-input-label for="lang" :value="__('message.language')" />
 
                         <select onchange="this.form.submit()" name="lang" id="lang"
