@@ -36,7 +36,7 @@ Route::middleware('setLocale')->group(function () {
 
     Route::match(['get', 'post'], '/confirm', [ConfirmController::class, 'index'])->name('confirm');
 
-    Route::post('/lang', [LangController::class, 'index'])->name('lang');
+    Route::post('/language', [LangController::class, 'index'])->name('language');
 
     Route::middleware('auth')->group(function () {
         Route::post('/session', [StripeController::class, 'session'])->name('session');
