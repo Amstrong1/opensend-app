@@ -146,7 +146,7 @@
                 </x-danger-button>
 
                 <x-primary-button class="ms-3">
-                    {{ __('message.Confirm') }}
+                    {{ __('message.confirm') }}
                 </x-primary-button>
             </div>
         </form>

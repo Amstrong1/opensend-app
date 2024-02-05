@@ -1,4 +1,7 @@
 <x-guest-layout>
+    <div>
+        
+    </div>
     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
 
