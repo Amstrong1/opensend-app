@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div>
-        
+
     </div>
     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
@@ -31,7 +31,8 @@
 
         <div class="mt-4">
             <x-input-label for="country" :value="__('message.country')" />
-            <select id="country" name="country" id="country" class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full p-2">
+            <select id="country" name="country" id="country" onchange="setCurrency(this)"
+                class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full p-2">
                 @foreach ($pays as $continent => $paysContinent)
                     <optgroup label="{{ $continent }}">
                         @foreach ($paysContinent as $value => $label)
@@ -57,6 +58,9 @@
                 required autocomplete="username" />
             <x-input-error :messages="$errors->get('address')" class="mt-2" />
         </div>
+
+        {{-- Currency --}}
+        <input type="hidden" name="currency" id="currency">
 
         <!-- ID -->
         <div class="mt-4">
@@ -116,3 +120,23 @@
         </div>
     </form>
 </x-guest-layout>
+
+<script>
+    function setCurrency(obj) {
+        var label = obj.selectedOptions[0].parentElement.label,
+            country = obj.selectedOptions[0].value;
+        if (label === "Africa") {
+            document.getElementById('currency').value = 'XOF';
+        }
+        if (label === "Europe") {
+            document.getElementById('currency').value = 'EUR';
+        }
+        if (country === "United Kingdom") {
+            document.getElementById('currency').value = 'GBP';
+        } else if (country === "Canada") {
+            currency = 'CAD';
+        } else if (country === "United States") {
+            document.getElementById('currency').value = 'USD';
+        }
+    }
+</script>

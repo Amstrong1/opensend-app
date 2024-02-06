@@ -7,10 +7,8 @@ use Illuminate\View\View;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
-use App\Mail\RegisterMailConfirm;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Auth\Events\Registered;
 
@@ -83,7 +81,6 @@ class RegisteredUserController extends Controller
 
         $fileName = time() . '.' . $request->cid->extension();
         $path = $request->file('cid')->storeAs('images', $fileName, 'public');
-        $code = gen_code();
 
         $user = User::create([
             'name' => $request->name,
@@ -93,22 +90,21 @@ class RegisteredUserController extends Controller
             'city' => $request->city,
             'address' => $request->address,
             'cid' => $path,
-            'code' => $code,
+            'currency' => $request->currency,
             'openid' => Str::orderedUuid(),
             'password' => Hash::make($request->password),
         ]);
 
         $request->session()->put('code', $user->code);
 
-        event(new Registered($user));
-
-        Mail::to($user->email)->send(new RegisterMailConfirm($user));
-        
+        event(new Registered($user));        
 
         $admins = User::where('role', 'admin')->get();
         foreach($admins as $admin) {
             $admin->notify(new \App\Notifications\NewUserNotification($user));
         }
+        
+        // Auth::login($user);
 
         return redirect('confirm');
     }

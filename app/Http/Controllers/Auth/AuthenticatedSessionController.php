@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
+use App\Mail\RegisterMailConfirm;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\RedirectResponse;
-use App\Providers\RouteServiceProvider;
 use App\Http\Requests\Auth\LoginRequest;
 
 class AuthenticatedSessionController extends Controller
@@ -26,14 +27,20 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $user = User::where('email', $request->email)->first();
-        $user->notify(new \App\Notifications\WelcomeNotification($user));
-        
         $request->authenticate();
-        
+
+        $user = User::where('email', $request->email)->first();
+
+        if ($user->valid == true) {
+            $code = gen_code();
+            $user->code = $code;
+            $user->save();
+            Mail::to($user->email)->send(new RegisterMailConfirm($user));
+        }
+
         $request->session()->regenerate();
-        
-        return redirect()->intended(RouteServiceProvider::HOME);
+
+        return redirect('confirm');
     }
 
     /**

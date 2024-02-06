@@ -2,6 +2,10 @@
     <form method="POST" action="{{ route('confirm') }}">
         @csrf
 
+        <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
+            {{ __('Si vous venez de créer un compte, veuillez patienter, nous allons envoyer un code à votre adresse email dès que votre compte sera activé.') }}
+        </div>
+
         <!-- Name -->
         <div>
             <x-input-label for="code" :value="__('message.code')" />

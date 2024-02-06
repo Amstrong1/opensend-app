@@ -9,7 +9,7 @@
                     step="0.01" required autofocus />
                 <x-input-error :messages="$errors->get('amount')" class="mt-2" />
             </div>
-            <div class="mt-4">
+            {{-- <div class="mt-4">
                 <x-input-label for="currency" :value="__('message.currency')" />
                 <select id="currency" type="text" name="currency" :value="old('currency')" required
                     class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full p-2">
@@ -20,7 +20,7 @@
                     <option value="XOF">XOF</option>
                 </select>
                 <x-input-error :messages="$errors->get('currency')" class="mt-2" />
-            </div>
+            </div> --}}
             <div class="mt-4">
                 <x-input-label for="way" :value="__('Type de retrait')" />
                 <select id="way" type="text" name="way" :value="old('way')" onchange="showPartner(this)" required

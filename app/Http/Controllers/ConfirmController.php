@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class ConfirmController extends Controller
 {
@@ -13,7 +12,10 @@ class ConfirmController extends Controller
         if (request()->method() === 'POST') {
             if ($request->code == session('code')) {
                 $user = User::where('code', $request->code)->first();
-                Auth::login($user);
+                $user->code = null;
+                $user->save();
+                $user->notify(new \App\Notifications\WelcomeNotification($user));
+
                 return redirect('dashboard');
             }
         }
