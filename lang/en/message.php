@@ -109,6 +109,9 @@ return [
     'country' => 'Country',
     'city' => 'City',
 
+    'uCode' => "Your confirmation code following the login with the address",
+    'careful' => "If you are not the originator of this action:",
+
     'newInsc' => 'New inscription',
 
     'line1' => 'Dear ',
