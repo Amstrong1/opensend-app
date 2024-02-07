@@ -133,7 +133,7 @@
             </div>
 
             <div class="m-6">
-                <x-input-label for="amount" value="{{ __('message.amount') . ' ' . auth()->user()->currency }}"
+                <x-input-label for="amount" value="{{ __('message.amount') . ' ' . Auth::user()->currency }}"
                     class="text-gray-900 dark:text-gray-100" />
 
                 <x-text-input id="amount" name="amount" type="number" class="mt-1 block w-full" required />
