@@ -31,8 +31,9 @@ class AuthenticatedSessionController extends Controller
 
         $user = User::where('email', $request->email)->first();
 
-        if ($user->valid == true) {
+        if ($user->active == true) {
             $code = gen_code();
+            session()->put('code', $code);
             $user->code = $code;
             $user->save();
             Mail::to($user->email)->send(new RegisterMailConfirm($user));

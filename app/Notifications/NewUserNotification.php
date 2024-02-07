@@ -45,7 +45,7 @@ class NewUserNotification extends Notification
             ->line('Tel :  ' . $this->user->tel)
             ->line(Lang::get('message.country') . ' : ' . $this->user->country)
             ->line(Lang::get('message.city') . ' : ' . $this->user->city)
-            ->line(Lang::get('message.adress') . ' : ' . $this->user->adress)
+            ->line(Lang::get('message.address') . ' : ' . $this->user->adress)
             ->line(Lang::get('message.line3') . getFormattedDateHour($this->user->created_at));
     }
 

@@ -2,7 +2,8 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 m-8">
         <div class="mx-4">
             <div class="px-2 text-black dark:text-white">
-                <h1 class="text-black dark:text-white"> {{ __('message.hello') }} {{ __(' , ' . Auth::user()->name) }}</h1>
+                <h1 class="text-black dark:text-white"> {{ __('message.hello') }} {{ __(' , ' . Auth::user()->name) }}
+                </h1>
             </div>
         </div>
     </div>
@@ -115,7 +116,7 @@
             </button> --}}
 
     <x-modal class="m-4" name="topup-modal" :show="$errors->isNotEmpty()" focusable>
-        <form id="topup" action="{{ route('session') }}" onsubmit="return checkPayment()" method="post">
+        <form id="topup" action="{{ route('stripeSession') }}" onsubmit="return checkPayment()" method="post">
             @csrf
             <div class="m-6">
                 <x-input-label for="payment_method" value="{{ __('message.mPayment') }}"
@@ -132,7 +133,7 @@
             </div>
 
             <div class="m-6">
-                <x-input-label for="amount" value="{{ __('message.amount') }}"
+                <x-input-label for="amount" value="{{ __('message.amount') . ' ' . auth()->user()->currency }}"
                     class="text-gray-900 dark:text-gray-100" />
 
                 <x-text-input id="amount" name="amount" type="number" class="mt-1 block w-full" required />

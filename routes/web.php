@@ -39,7 +39,7 @@ Route::middleware('setLocale')->group(function () {
     Route::post('/language', [LangController::class, 'index'])->name('language');
 
     Route::middleware('auth')->group(function () {
-        Route::post('/session', [StripeController::class, 'session'])->name('session');
+        Route::post('/stripeSession', [StripeController::class, 'stripeSession'])->name('stripeSession');
         Route::get('/success', [StripeController::class, 'success'])->name('success');
 
         Route::get('/done', function () {

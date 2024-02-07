@@ -16,8 +16,47 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $pays = [
+            'Africa' => [
+                'Benin' => 'Benin',
+                'Burkina Faso' => 'Burkina Faso',
+                'Cape Verde' => 'Cape Verde',
+                'Côte d\'Ivoire' => 'Côte d\'Ivoire',
+                'Gambia' => 'Gambia',
+                'Ghana' => 'Ghana',
+                'Guinea' => 'Guinea',
+                'Guinea-Bissau' => 'Guinea-Bissau',
+                'Liberia' => 'Liberia',
+                'Mali' => 'Mali',
+                'Mauritania' => 'Mauritania',
+                'Niger' => 'Niger',
+                'Nigeria' => 'Nigeria',
+                'Senegal' => 'Senegal',
+                'Sierra Leone' => 'Sierra Leone',
+                'Togo' => 'Togo',
+            ],
+
+            'Europe' => [
+                'Austria' => 'Austria',
+                'Belgium' => 'Belgium',
+                'France' => 'France',
+                'Germany' => 'Germany',
+                'Ireland' => 'Ireland',
+                'Luxembourg' => 'Luxembourg',
+                'Netherlands' => 'Netherlands',
+                'Switzerland' => 'Switzerland',
+                'United Kingdom' => 'United Kingdom',
+            ],
+
+            'America' => [
+                'United States' => 'United States',
+                'Canada' => 'Canada',
+            ],
+
+        ];
         return view('profile.edit', [
             'user' => $request->user(),
+            'pays' => $pays
         ]);
     }
 
@@ -31,6 +70,8 @@ class ProfileController extends Controller
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+
+        dd($request->user());
 
         $request->user()->save();
 

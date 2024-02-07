@@ -57,9 +57,23 @@
             </div>
 
             <div>
-                <x-input-label for="country" :value="__('message.country')" />
+                {{-- <x-input-label for="country" :value="__('message.country')" />
                 <x-text-input id="country" name="country" type="text" class="mt-1 block w-full" :value="old('country', $user->country)"
                     required autofocus autocomplete="country" />
+                <x-input-error class="mt-2" :messages="$errors->get('country')" /> --}}
+
+                <x-input-label for="country" :value="__('message.country')" />
+                <select onchange="setCurrency(this)" id="country" name="country" id="country" onchange="setCurrency(this)"
+                    class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full p-2">
+                    @foreach ($pays as $continent => $paysContinent)
+                        <optgroup label="{{ $continent }}">
+                            @foreach ($paysContinent as $value => $label)
+                                <option @if (old('country', $user->country) == $value) selected @endif value="{{ $value }}">
+                                    {{ $label }}</option>
+                            @endforeach
+                        </optgroup>
+                    @endforeach
+                </select>
                 <x-input-error class="mt-2" :messages="$errors->get('country')" />
             </div>
 
@@ -76,6 +90,13 @@
                     required autofocus autocomplete="address" />
                 <x-input-error class="mt-2" :messages="$errors->get('address')" />
             </div>
+
+            <div>
+                <x-input-label for="currency" :value="__('message.currency')" />
+                <x-text-input id="currency" name="currency" type="text" class="mt-1 block w-full" :value="old('currency', $user->currency)"
+                    required autofocus autocomplete="currency" readonly />
+                <x-input-error class="mt-2" :messages="$errors->get('currency')" />
+            </div>
         </div>
 
         <div class="flex items-center gap-4">
@@ -88,3 +109,23 @@
         </div>
     </form>
 </section>
+
+<script>
+    function setCurrency(obj) {
+        var label = obj.selectedOptions[0].parentElement.label,
+            country = obj.selectedOptions[0].value;
+        if (label === "Africa") {
+            document.getElementById('currency').value = 'XOF';
+        }
+        if (label === "Europe") {
+            document.getElementById('currency').value = 'EUR';
+        }
+        if (country === "United Kingdom") {
+            document.getElementById('currency').value = 'GBP';
+        } else if (country === "Canada") {
+            document.getElementById('currency').value = 'CAD';
+        } else if (country === "United States") {
+            document.getElementById('currency').value = 'USD';
+        }
+    }
+</script>

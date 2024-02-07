@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Recharge;
 use App\Models\User;
+use App\Models\Recharge;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class StripeController extends Controller
 {
 
-    public function session(Request $request)
+    public function stripeSession(Request $request)
     {
         \Stripe\Stripe::setApiKey(config('stripe.sk'));
 
@@ -54,8 +53,8 @@ class StripeController extends Controller
 
         session()->forget('amount');
 
-        $user = User::find(Auth::id()); 
-        $user->balance = $user->balance + $recharge->amount;    
+        $user = User::find(Auth::id());
+        $user->balance = $user->balance + $recharge->amount;
         $user->save();
         // Alert::success('Success', 'Recharge Successful!');
         return redirect('done');

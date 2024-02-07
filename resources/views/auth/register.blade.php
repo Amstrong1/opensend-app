@@ -41,6 +41,7 @@
                     </optgroup>
                 @endforeach
             </select>
+            <x-input-error class="mt-2" :messages="$errors->get('country')" />
         </div>
 
         <!-- Adress -->
@@ -134,7 +135,7 @@
         if (country === "United Kingdom") {
             document.getElementById('currency').value = 'GBP';
         } else if (country === "Canada") {
-            currency = 'CAD';
+            document.getElementById('currency').value = 'CAD';
         } else if (country === "United States") {
             document.getElementById('currency').value = 'USD';
         }
