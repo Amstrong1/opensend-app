@@ -39,13 +39,13 @@ class NewUserNotification extends Notification
     {
         return (new MailMessage)
             ->line(Lang::get('message.newInsc'))
-            ->line('Informations de l\'tilisateur')
+            ->line(Lang::get('message.userInfo'))
             ->line(Lang::get('message.name') . ' : ' . $this->user->name)
             ->line('Email :  ' . $this->user->email)
             ->line('Tel :  ' . $this->user->tel)
             ->line(Lang::get('message.country') . ' : ' . $this->user->country)
             ->line(Lang::get('message.city') . ' : ' . $this->user->city)
-            ->line(Lang::get('message.address') . ' : ' . $this->user->adress)
+            ->line(Lang::get('message.address') . ' : ' . $this->user->address)
             ->line(Lang::get('message.line3') . getFormattedDateHour($this->user->created_at));
     }
 

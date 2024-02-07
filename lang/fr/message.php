@@ -112,6 +112,8 @@ return [
     'uCode' => "Votre de code confirmation suite à la connexion avec l'adresse",
     'careful' => "Si vous n'êtes pas à l'origine de cette action :",
 
+    'userInfo' => 'Informations de l\'utilisateur',
+
     'newInsc' => 'Nouvelle inscription',
     'line1' => 'Cher(e) ',
     'line2' => "Nous vous informons qu'une connexion à votre espace client a été effectuée avec succès. Voici les détails de la connexion : ",

@@ -112,8 +112,9 @@ return [
     'uCode' => "Your confirmation code following the login with the address",
     'careful' => "If you are not the originator of this action:",
 
-    'newInsc' => 'New inscription',
+    'userInfo' => 'User Information',
 
+    'newInsc' => 'New inscription',
     'line1' => 'Dear ',
     'line2' => "We inform you that a connection to your client account has been successfully made. Here are the details of the connection:",
     'line3' => 'Date and Time of connection: ',
