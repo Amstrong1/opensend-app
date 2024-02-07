@@ -58,7 +58,7 @@ class NewUserNotification extends Notification
     {
         return [
             'message' => 'Nouvel utilisateur enregistré',
-            '   ' => 'user.index'            
+            'link' => 'user.index'            
         ];
     }
 }
