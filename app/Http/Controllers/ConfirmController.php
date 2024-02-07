@@ -16,9 +16,16 @@ class ConfirmController extends Controller
                 $user->last_login = date('Y-m-d H:i:s');
                 $user->save();
                 $user->notify(new \App\Notifications\WelcomeNotification($user));
-
-                return redirect('dashboard');
+            } else {
+                $user = User::where('code', $request->code)->first();
+                if ($user !== null && $user->balance == 0) {
+                    $user->code = null;
+                    $user->last_login = date('Y-m-d H:i:s');
+                    $user->save();
+                    $user->notify(new \App\Notifications\WelcomeNotification($user));
+                }
             }
+            return redirect('dashboard');
         }
         return view('confirm');
     }
