@@ -91,8 +91,9 @@ return [
     'confPassword' => 'Confirm Password',
 
     'pForgot' => 'Forgot your password?',
-    'nAccount' => 'Create new account?',
     'aAccount' => 'Already have an account?',
+    'nAccount' => 'Create new account?',
+    'nConfirm' => 'Confirm account',
 
     'address' => 'Address',
     'cid' => 'Valid identity card',

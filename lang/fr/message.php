@@ -93,6 +93,7 @@ return [
     'pForgot' => 'Mot de passe oublié?',
     'aAccount' => 'Déja inscrit?',
     'nAccount' => 'Créer un nouveau compte?',
+    'nConfirm' => 'Confirmer mon compte',
 
     'address' => 'Adresse',
     'cid' => 'Carte d\'identité valide',
