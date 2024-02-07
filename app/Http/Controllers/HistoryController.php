@@ -15,6 +15,6 @@ class HistoryController extends Controller
         $cashouts = Cashout::where('user_id', Auth::id())->get();
         $payment_transactions = PaymentTransaction::where('user_id', Auth::id())->where('status', 'completed')->get();
 
-        return view('history', compact('recharges','cashouts','payment_transactions' ));
+        return view('history', compact('recharges', 'cashouts', 'payment_transactions'));
     }
 }

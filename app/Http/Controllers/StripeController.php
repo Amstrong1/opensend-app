@@ -6,16 +6,28 @@ use App\Models\User;
 use App\Models\Recharge;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class StripeController extends Controller
 {
 
     public function stripeSession(Request $request)
     {
-        \Stripe\Stripe::setApiKey(config('stripe.sk'));
+        \Stripe\Stripe::setApiKey(config('stripe.sk'));        
+
+        $url = 'https://api.exchangerate-api.com/v4/latest/USD';
+        $response = file_get_contents($url);
+        $data = json_decode($response, true);
+
+        if ($data !== null) {
+            $rates = $data['rates'];
+        } else {
+            Alert::error('Error', 'Something went wrong!');
+            return back();
+        }
 
         $productname = 'Recharge' . Auth::id();
-        $totalprice = $request->get('amount');
+        $totalprice = round($request->get('amount') / $rates[Auth::user()->currency]);
         $two0 = "00";
         $total = "$totalprice$two0";
 

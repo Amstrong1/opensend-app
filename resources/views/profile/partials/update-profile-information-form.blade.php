@@ -63,7 +63,8 @@
                 <x-input-error class="mt-2" :messages="$errors->get('country')" /> --}}
 
                 <x-input-label for="country" :value="__('message.country')" />
-                <select onchange="setCurrency(this)" id="country" name="country" id="country" onchange="setCurrency(this)"
+                <select onchange="setCurrency(this)" id="country" name="country" id="country"
+                    onchange="setCurrency(this)"
                     class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full p-2">
                     @foreach ($pays as $continent => $paysContinent)
                         <optgroup label="{{ $continent }}">
@@ -126,6 +127,8 @@
             document.getElementById('currency').value = 'CAD';
         } else if (country === "United States") {
             document.getElementById('currency').value = 'USD';
+        } else if (country === "Switzerland") {
+            document.getElementById('currency').value = 'CHF';
         }
     }
 </script>

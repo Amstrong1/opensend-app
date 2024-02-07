@@ -19,17 +19,29 @@ class WithDrawController extends Controller
     {
         $user = User::find(Auth::id());
 
-        if ($request->amount >= $user->balance) {
+        $url = 'https://api.exchangerate-api.com/v4/latest/USD';
+        $response = file_get_contents($url);
+        $data = json_decode($response, true);
+
+        if ($data !== null) {
+            $rates = $data['rates'];
+        } else {
+            Alert::error('Error', 'Something went wrong!');
+            return back();
+        }
+
+        $amount = round($request->get('amount') / $rates[Auth::user()->currency]);
+        
+        if ($amount <= $user->balance) {
             $paymentTransaction = new PaymentTransaction();
             $paymentTransaction->user_id = Auth::id();
-            $paymentTransaction->amount = $request->amount;
-            $paymentTransaction->currency = $request->currency;
+            $paymentTransaction->amount = $amount;
+            $paymentTransaction->payment_method = $request->payment_method;
             $paymentTransaction->destination = $request->destination;
             $paymentTransaction->transfer_group = 'withdraw';
             $paymentTransaction->status = 'pending';
             $paymentTransaction->save();
 
-            // Alert::success('success', 'Votre requete est en cours d\'execution');
             return redirect('done');
         } else {
             Alert::error('error', 'Solde insuffisant');

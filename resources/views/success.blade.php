@@ -1,6 +1,6 @@
 <x-guest-layout>
     <img class="w-48 block mx-auto" src="{{ asset('img/done.svg') }}" alt="Success">
-    <h1 class="text-black dark:text-white my-2">{{ ('message.success') }}</h1>
+    <h1 class="text-black dark:text-white my-2">{{ __('message.success') }}</h1>
     <a href="{{ route('dashboard') }}">
         <x-primary-button class="my-2 underline w-full flex justify-between">
             <span>{{ __('message.continue') }}</span>

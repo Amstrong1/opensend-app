@@ -4,7 +4,7 @@
 
         <div class="overflow-hidden shadow-sm rounded-lg">
             <div class="my-4 text-black dark:text-white">
-                {{ __('message.resTransfert') }} ${{ $transfert['amount'] }} {{ __('message.to') }} {{ $transfert['receiver'] }}.
+                {{ __('message.resTransfert') }} $ {{ $transfert['amount'] }} {{ __('message.to') }} {{ $transfert['receiver'] }}.
             </div>
         </div>
         <form action="{{ route('transfer-validation') }}" method="post">

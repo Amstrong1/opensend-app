@@ -4,7 +4,7 @@
         <form action="" method="post">
             @csrf
             <div class="mt-4">
-                <x-input-label for="amount" :value="__('message.amount')" />
+                <x-input-label for="amount" :value="__('message.amount') . ' ' . Auth::user()->currency" />
                 <x-text-input id="amount" class="block mt-1 w-full" type="number" name="amount" :value="old('amount')"
                     step="0.01" required autofocus />
                 <x-input-error :messages="$errors->get('amount')" class="mt-2" />
@@ -22,16 +22,16 @@
                 <x-input-error :messages="$errors->get('currency')" class="mt-2" />
             </div> --}}
             <div class="mt-4">
-                <x-input-label for="way" :value="__('Type de retrait')" />
-                <select id="way" type="text" name="way" :value="old('way')" onchange="showPartner(this)" required
+                <x-input-label for="payment_method" :value="__('message.mPayment')" />
+                <select id="payment_method" type="text" name="payment_method" :value="old('payment_method')" onchange="showPartner(this)" required
                     class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full p-2">
                     <option value="instant">Instantané</option>
                     <option value="cash">Auprès d'un partenaire</option>
                 </select>
-                <x-input-error :messages="$errors->get('way')" class="mt-2" />
+                <x-input-error :messages="$errors->get('payment_method')" class="mt-2" />
             </div>
             <div id="dest1" class="mt-4">
-                <x-input-label for="destination1" :value="__('N° de téléphone')" />
+                <x-input-label for="destination1" :value="__('N° Tel')" />
                 <x-text-input id="destination1" class="block mt-1 w-full" type="text" name="destination"
                     :value="old('destination1')" />
                 <x-input-error :messages="$errors->get('destination1')" class="mt-2" />

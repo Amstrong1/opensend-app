@@ -138,6 +138,8 @@
             document.getElementById('currency').value = 'CAD';
         } else if (country === "United States") {
             document.getElementById('currency').value = 'USD';
+        } else if (country === "Switzerland") {
+            document.getElementById('currency').value = 'CHF';
         }
     }
 </script>
