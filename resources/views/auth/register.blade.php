@@ -61,7 +61,7 @@
         </div>
 
         {{-- Currency --}}
-        <input type="hidden" name="currency" id="currency">
+        <input type="hidden" name="currency" id="currency" value="XOF">
 
         <!-- ID -->
         <div class="mt-4">
