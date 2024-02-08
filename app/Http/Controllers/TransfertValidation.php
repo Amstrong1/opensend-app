@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Cashout;
+use App\Models\Recharge;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\CashoutRequest;
@@ -30,6 +31,12 @@ class TransfertValidation extends Controller
 
                 $receiver->balance = $receiver->balance + $cashout->amount;
                 $receiver->save();
+
+                $recharge = new Recharge();
+                $recharge->user_id = $receiver->id;
+                $recharge->amount = $cashout->amount;
+                $recharge->payment_method = 'transfert';
+                $recharge->save();
 
                 $message1 = [
                     'sender' => Auth::user()->name,
