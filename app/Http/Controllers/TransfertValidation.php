@@ -18,18 +18,31 @@ class TransfertValidation extends Controller
             $receiver = User::where('openid', $request->uuid)->first();
 
             if ($receiver !== null) {
-                $cashOut = new Cashout();
-                $cashOut->user_id = Auth::id();
-                $cashOut->amount = $request->amount;
-                $cashOut->uuid = $request->uuid;
-                $cashOut->motif = $request->motif;
-                $cashOut->save();
+                $cashout = new Cashout();
+                $cashout->user_id = Auth::id();
+                $cashout->amount = $request->amount;
+                $cashout->uuid = $request->uuid;
+                $cashout->motif = $request->motif;
+                $cashout->save();
 
-                $user->balance = $user->balance - $cashOut->amount;
+                $user->balance = $user->balance - $cashout->amount;
                 $user->save();
 
-                $receiver->balance = $receiver->balance + $cashOut->amount;
+                $receiver->balance = $receiver->balance + $cashout->amount;
                 $receiver->save();
+
+                $message1 = [
+                    'sender' => Auth::user()->name,
+                    'amount' => $cashout->amount,
+                ];
+
+                $message2 = [
+                    'receiver' => $receiver->name,
+                    'amount' => $cashout->amount,
+                ];
+
+                $receiver->notify(new \App\Notifications\MoneyReceivedNotification($message1));
+                $user->notify(new \App\Notifications\MoneySendNotification($message2));
             }
 
             return redirect('done');

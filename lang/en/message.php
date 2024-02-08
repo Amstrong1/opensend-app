@@ -124,5 +124,10 @@ return [
     'line6' => 'If you did not initiate this connection:',
     'line7' => '1. Change your password: Change your password as soon as possible to secure your account.',
     'line8' => '2. Check your information and activities: Access your client account and review your personal information and activity history to detect any suspicious actions.',
-    'line9' => '3. Contact our customer service: If you notice unauthorized activities or need assistance, contact us immediately.'
+    'line9' => '3. Contact our customer service: If you notice unauthorized activities or need assistance, contact us immediately.',
+
+    'received' => "You have received a sum of ",
+    'sent' => "You have sent a sum of ",
+    'thank' => "Thank you for using our application!",
+    'of' => " of ",
 ];

@@ -125,4 +125,9 @@ return [
     'line7' => '1. Changez votre mot de passe : Modifiez votre mot de passe dès que possible pour sécuriser votre compte.',
     'line8' => "2. Vérifiez vos informations et activités : Accédez à votre espace client et vérifiez vos informations personnelles ainsi que l'historique des activités pour détecter toute action suspecte.",
     'line9' => "3. Contactez notre service client : Si vous constatez des activités non autorisées ou si vous avez besoin d'assistance, contactez-nous immédiatement.",
+    
+    'received' => "Vous avez recu une somme de ",
+    'sent' => "Vous avez envoyé une somme de ",
+    'thank' => "Merci d'utiliser OpenSend",
+    'of' => " de ",
 ];
