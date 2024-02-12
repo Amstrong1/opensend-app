@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Notifications\NewMessageNotify;
 
 class ChatController extends Controller
 {
@@ -15,19 +17,23 @@ class ChatController extends Controller
 
     public function fetchMessages()
     {
-        return Message::where('user_id', Auth::user()->id)->with('user')->get();
+        return Message::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->with('user')->get();
     }
 
     public function sendMessage(Request $request)
     {
 
-        //dd($request->all());
         $user = Auth::user();
 
         $message = Message::create([
             'user_id' => $user->id,
             'content' => $request->input('content'),
         ]);
+
+        $admins = User::where('role', 'admin')->get();
+        foreach ($admins as $admin) {
+            $admin->notify(new NewMessageNotify($user, $message));
+        }
 
         broadcast(new \App\Events\MessageSent($user, $message))->toOthers();
 
