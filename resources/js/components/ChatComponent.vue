@@ -1,7 +1,7 @@
 <template>
     <div class="min-h-screen flex flex-col">
         <div class="dark:text-white overflow-y-auto flex-1 text-sm">
-            <div v-for="message in messages" :key="message.id">
+            <div class="my-4" v-for="message in messages" :key="message.id">
                 <div class="my-2 p-2 rounded bg-slate-400 w-3/4">
                     {{ message.content }}
                 </div>
