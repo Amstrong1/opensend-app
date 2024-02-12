@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\PaymentTransaction;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 
 class WithDrawController extends Controller
 {
@@ -31,7 +32,7 @@ class WithDrawController extends Controller
         }
 
         $amount = round($request->get('amount') / $rates[Auth::user()->currency]);
-        
+
         if ($amount <= $user->balance) {
             $paymentTransaction = new PaymentTransaction();
             $paymentTransaction->user_id = Auth::id();
@@ -41,6 +42,21 @@ class WithDrawController extends Controller
             $paymentTransaction->transfer_group = 'withdraw';
             $paymentTransaction->status = 'pending';
             $paymentTransaction->save();
+
+            if ($request->payment_method == 'interac') {
+                $interac = new EloquentCollection();
+                $interac->push([
+                    'tel' => $request->tel,
+                    'name' => $request->name,
+                    'bank' => $request->bank,
+                    'email' => $request->email,
+                    'amount' => $request->amount,
+                    'country' => $request->country,
+                    'type' => $request->type,
+                ]);
+                $interac = $interac->collapse();
+                return view('confirm-interac', compact('interac'));
+            }
 
             return redirect('done');
         } else {

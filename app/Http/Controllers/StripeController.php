@@ -13,6 +13,9 @@ class StripeController extends Controller
 
     public function stripeSession(Request $request)
     {
+        if ($request->payment_method == "interac") {
+            return redirect()->route('interac.create');
+        }
         \Stripe\Stripe::setApiKey(config('stripe.sk'));        
 
         $url = 'https://api.exchangerate-api.com/v4/latest/USD';

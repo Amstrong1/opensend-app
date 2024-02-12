@@ -2,16 +2,18 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\LangController;
 use App\Http\Controllers\UUIDController;
 use App\Http\Controllers\TopUpController;
 use App\Http\Controllers\StripeController;
 use App\Http\Controllers\ConfirmController;
 use App\Http\Controllers\HistoryController;
-use App\Http\Controllers\LangController;
+use App\Http\Controllers\InteracController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WithDrawController;
 use App\Http\Controllers\SendMoneyController;
 use App\Http\Controllers\TransfertValidation;
+use App\Http\Controllers\ConfirmInteracController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,10 @@ Route::middleware('setLocale')->group(function () {
 
         Route::get('/send', [SendMoneyController::class, 'create'])->name('send.create');
         Route::post('/send', [SendMoneyController::class, 'store'])->name('send.store');
+
+        Route::get('/interac', [InteracController::class, 'create'])->name('interac.create');
+        Route::post('/interac', [InteracController::class, 'store'])->name('interac.store');
+        Route::post('/interac-confirm', [ConfirmInteracController::class, 'store'])->name('interac-confirm');
 
         Route::get('/history', [HistoryController::class, 'index'])->name('history');
 

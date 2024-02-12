@@ -130,4 +130,6 @@ return [
     'sent' => "You have sent a sum of ",
     'thank' => "Thank you for using our application!",
     'of' => " of ",
+
+    'bank' => "Bank",
 ];

@@ -83,21 +83,25 @@
 
         function checkPayment() {
             if (document.getElementById('payment_method').value == 'kkiapay') {
-                openKkiapayWidget({
-                    amount: document.getElementById('amount').value,
-                    position: "right",
-                    callback: "success",
-                    data: "",
-                    theme: "",
-                    sandbox: "true",
-                    key: "298dba30723511ec9f5205a1aca9c042"
-                })
+                // openKkiapayWidget({
+                //     amount: document.getElementById('amount').value,
+                //     position: "right",
+                //     callback: "success",
+                //     data: "",
+                //     theme: "",
+                //     sandbox: "true",
+                //     key: "298dba30723511ec9f5205a1aca9c042"
+                // })
                 return false;
             }
             if (document.getElementById('payment_method').value == 'stripe') {
-                window.location.replace("/checkout");
+                return true;
             }
         }
+
+        // function replace() {
+        //     window.location.replace('/interac');
+        // }
 
         function copy() {
             // Sélectionne le contenu de la div

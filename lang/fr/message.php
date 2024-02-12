@@ -130,4 +130,6 @@ return [
     'sent' => "Vous avez envoyé une somme de ",
     'thank' => "Merci d'utiliser OpenSend",
     'of' => " de ",
+    
+    'bank' => "Banque",
 ];

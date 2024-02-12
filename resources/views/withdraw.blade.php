@@ -9,24 +9,14 @@
                     step="0.01" required autofocus />
                 <x-input-error :messages="$errors->get('amount')" class="mt-2" />
             </div>
-            {{-- <div class="mt-4">
-                <x-input-label for="currency" :value="__('message.currency')" />
-                <select id="currency" type="text" name="currency" :value="old('currency')" required
-                    class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full p-2">
-                    <option value="USD">USD</option>
-                    <option value="EUR">EUR</option>
-                    <option value="GBP">GBP</option>
-                    <option value="CAD">CAD</option>
-                    <option value="XOF">XOF</option>
-                </select>
-                <x-input-error :messages="$errors->get('currency')" class="mt-2" />
-            </div> --}}
             <div class="mt-4">
                 <x-input-label for="payment_method" :value="__('message.mPayment')" />
-                <select id="payment_method" type="text" name="payment_method" :value="old('payment_method')" onchange="showPartner(this)" required
+                <select id="payment_method" type="text" name="payment_method" :value="old('payment_method')"
+                    onchange="showPartner(this)" required
                     class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm mt-1 block w-full p-2">
                     <option value="instant">Instantané</option>
                     <option value="cash">Auprès d'un partenaire</option>
+                    <option value="interac">Interac</option>
                 </select>
                 <x-input-error :messages="$errors->get('payment_method')" class="mt-2" />
             </div>
@@ -42,6 +32,42 @@
                     :value="old('destination2')" />
                 <x-input-error :messages="$errors->get('destination2')" class="mt-2" />
             </div>
+            {{-- interac --}}
+            <div id="interac" class="hidden">
+                <input type="hidden" name="type" value="retrait">
+                <input type="hidden" name="destination" value="interac">
+                <div class="mt-4">
+                    <x-input-label for="name" :value="__('message.name')" />
+                    <x-text-input id="name" class="block mt-1 w-full" type="text" name="name"
+                        :value="old('name') ?? auth()->user()->name" required autofocus />
+                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                </div>
+                <div class="mt-4">
+                    <x-input-label for="email" :value="__('Email')" />
+                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
+                        :value="old('email') ?? auth()->user()->email" required autofocus />
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                </div>
+                <div class="mt-4">
+                    <x-input-label for="tel" :value="__('Tel')" />
+                    <x-text-input id="tel" class="block mt-1 w-full" type="tel" name="tel"
+                        :value="old('tel') ?? auth()->user()->tel" required autofocus />
+                    <x-input-error :messages="$errors->get('tel')" class="mt-2" />
+                </div>
+                <div class="mt-4">
+                    <x-input-label for="country" :value="__('message.country')" />
+                    <x-text-input id="country" class="block mt-1 w-full" type="text" name="country"
+                        :value="old('country') ?? auth()->user()->country" required autofocus />
+                    <x-input-error :messages="$errors->get('country')" class="mt-2" />
+                </div>
+                <div class="mt-4">
+                    <x-input-label for="bank" :value="__('message.bank')" />
+                    <x-text-input id="bank" class="block mt-1 w-full" type="text" name="bank"
+                        :value="old('bank')" required autofocus />
+                    <x-input-error :messages="$errors->get('bank')" class="mt-2" />
+                </div>
+            </div>
+
             {{-- <div class="mt-4">
                 <x-input-label for="transfer_group" :value="__('Transfert group')" />
                 <x-text-input id="transfer_group" class="block mt-1 w-full" type="text" name="transfer_group"
@@ -93,9 +119,15 @@
         if (obj.value == 'cash') {
             var x = document.getElementById("dest1").style.display = "none";
             var x = document.getElementById("dest2").style.display = "block";
-        } else {
+            var x = document.getElementById("interac").style.display = "none";
+        } else if (obj.value == 'instant') {
             var x = document.getElementById("dest1").style.display = "block";
             var x = document.getElementById("dest2").style.display = "none";
+            var x = document.getElementById("interac").style.display = "none";
+        } else if (obj.value == 'interac') {
+            var x = document.getElementById("dest1").style.display = "none";
+            var x = document.getElementById("dest2").style.display = "none";
+            var x = document.getElementById("interac").style.display = "block";
         }
     }
 </script>

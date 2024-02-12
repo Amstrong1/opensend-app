@@ -10,7 +10,7 @@
 
     <div class="grid grid-cols-2 gap-2 px-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
-            <div class="overflow-hidden shadow-sm rounded-lg p-6 w-full h-full" style="background-color: #ed6a06">
+            <div class="overflow-hidden shadow-sm rounded-lg p-6 w-32 h-40" style="background-color: #ed6a06">
                 <a href="#" x-data="" x-on:click.prevent="$dispatch('open-modal', 'topup-modal')">
                     <div class="text-white text-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -27,7 +27,7 @@
         </div>
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
-            <div class="overflow-hidden shadow-sm rounded-lg p-6 w-full h-full" style="background-color: #d4d44d">
+            <div class="overflow-hidden shadow-sm rounded-lg p-6 w-32 h-40" style="background-color: #d4d44d">
                 <a href="{{ route('withdraw.create') }}">
                     <div class="text-white text-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -46,7 +46,7 @@
 
     <div class="grid grid-cols-2 gap-2 px-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
-            <div class="overflow-hidden shadow-sm rounded-lg p-6 w-full h-full" style="background-color: #845223">
+            <div class="overflow-hidden shadow-sm rounded-lg p-6 w-32 h-40" style="background-color: #845223">
                 <a href="{{ route('send.create') }}">
                     <div class="text-white text-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-2">
-            <div class="overflow-hidden shadow-sm rounded-lg p-6 w-full h-full" style="background-color: #008638">
+            <div class="overflow-hidden shadow-sm rounded-lg p-6 w-32 h-40" style="background-color: #008638">
                 <a href="{{ route('uuid.index') }}">
                     <div class="text-white text-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -79,8 +79,8 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-1 gap-2">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 my-4 w-full">
+    <div class="grid grid-cols-1 gap-2 px-2">
+        <div class="mx-auto sm:px-6 lg:px-8 my-4 w-full">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm rounded-lg mx-4 text-center">
                 <div class="p-6 text-white" style="background-color: #f7951d">
                     <div id="balancex">{{ __('message.sold') }}</div>
@@ -116,7 +116,7 @@
             </button> --}}
 
     <x-modal class="m-4" name="topup-modal" :show="$errors->isNotEmpty()" focusable>
-        <form id="topup" action="{{ route('stripeSession') }}" onsubmit="return checkPayment()" method="post">
+        <form id="topup" action="{{ route("stripeSession") }}" onsubmit="return checkPayment()" method="post">
             @csrf
             <div class="m-6">
                 <x-input-label for="payment_method" value="{{ __('message.mPayment') }}"
@@ -127,6 +127,7 @@
                     <option value="">{{ __('Choisir une méthode de paiement') }}</option>
                     <option value="stripe">{{ __('message.vCard') }}</option>
                     <option value="kkiapay">{{ __('Mobile Money') }}</option>
+                    <option value="interac">{{ __('Interac') }}</option>
                 </select>
 
                 <x-input-error :messages="$errors->get('payment_method')" class="mt-2" />
