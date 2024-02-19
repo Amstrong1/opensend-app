@@ -1,11 +1,12 @@
 <template>
-    <div class="min-h-screen flex flex-col">
+    <div class="flex flex-col">
         <div class="dark:text-white overflow-y-auto flex-1 text-sm">
             <div class="my-4" v-for="message in messages" :key="message.id">
                 <div class="my-2 p-2 rounded bg-slate-400 w-3/4">
                     {{ message.content }}
                 </div>
-                <div class="my-2 p-2 rounded w-3/4 relative left-12" style="background-color: #f7951d" v-if="message.reply !== null">{{ message.reply }}</div>
+                <div class="my-2 p-2 rounded w-3/4 relative left-12" style="background-color: #f7951d"
+                    v-if="message.reply !== null">{{ message.reply }}</div>
             </div>
         </div>
         <div class="fixed left-0 right-0 bottom-20 rounded w-full bg-gray-100 dark:bg-gray-900 mx-1">
@@ -26,6 +27,7 @@
 </template>
   
 <script setup>
+
 import { ref, onMounted } from 'vue';
 import Echo from 'laravel-echo';
 import axios from 'axios';

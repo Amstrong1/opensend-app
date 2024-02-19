@@ -17,7 +17,7 @@ class ChatController extends Controller
 
     public function fetchMessages()
     {
-        return Message::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->with('user')->get();
+        return Message::where('user_id', Auth::user()->id)->get();
     }
 
     public function sendMessage(Request $request)
