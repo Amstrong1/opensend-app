@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->string('amount');
-            $table->string('currency');
+            $table->string('currency')->default('USD');
             $table->string('destination');
             $table->string('transfer_group');
             $table->string('status');

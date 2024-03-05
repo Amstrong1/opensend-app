@@ -50,6 +50,7 @@ class StripeController extends Controller
                 ],
 
             ],
+            'payment_method_types[]' => 'card',
             'mode'        => 'payment',
             'success_url' => route('success'),
             'cancel_url'  => route('dashboard'),

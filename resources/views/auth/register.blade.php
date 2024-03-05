@@ -1,7 +1,4 @@
 <x-guest-layout>
-    <div>
-
-    </div>
     <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
 
@@ -107,8 +104,8 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <div class="flex items-center mt-4">
-            <x-primary-button class="w-full">
+        <div class="flex mt-4">
+            <x-primary-button class="justify-center w-full">
                 {{ __('message.register') }}
             </x-primary-button>
         </div>

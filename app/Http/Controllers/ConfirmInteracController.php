@@ -15,6 +15,7 @@ class ConfirmInteracController extends Controller
     {
         $interac = new Interac();
         $interac->user_id = Auth::id();
+        $interac->amount = $request->amount;
         $interac->name = $request->name;
         $interac->tel = $request->tel;
         $interac->bank = $request->bank;
@@ -22,6 +23,10 @@ class ConfirmInteracController extends Controller
         $interac->country = $request->country;
         $interac->type = $request->type;
         $interac->save();
+
+        $user = User::find(Auth::id());
+        $user->balance = $user->balance - $interac->amount;
+        $user->save();
 
         $admins = User::where('role', 'admin')->get();
         foreach ($admins as $admin) {

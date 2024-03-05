@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::table('payment_transactions', function (Blueprint $table) {
             $table->text('stripe_transfer_id')->nullable()->change();
-            $table->text('currency')->default('USD')->change();
             $table->text('payment_method');
         });
     }

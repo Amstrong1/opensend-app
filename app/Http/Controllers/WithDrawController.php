@@ -43,6 +43,11 @@ class WithDrawController extends Controller
             $paymentTransaction->status = 'pending';
             $paymentTransaction->save();
 
+            if ($request->payment_method !== 'interac') {
+                $user->balance = $user->balance - $amount;
+                $user->save();
+            }
+
             if ($request->payment_method == 'interac') {
                 $interac = new EloquentCollection();
                 $interac->push([
