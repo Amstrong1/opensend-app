@@ -22,7 +22,7 @@
         "laravel-echo": "^1.15.3",
         "pusher-js": "^8.4.0-rc2",
         "socket.io": "^4.7.4",
-        "vue": "^3.4.15",
+        "vue": "^3.2.13",
         "vue-loader": "^17.4.2",
         "vue-router": "^4.2.5"
     }

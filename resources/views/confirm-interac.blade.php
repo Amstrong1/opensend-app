@@ -6,7 +6,7 @@
         @endphp
         <div class="overflow-hidden shadow-sm rounded-lg">
             <div class="my-4 text-black dark:text-white">
-                {{ $interac['type'] == 'depot' ? "Vous souhaitez recharger votre compte par interac. Vérifiez les informations :" : "Vous souhaiter débiter votere compte OpenSend par Interac. Vérifiez les informations :" }}
+                {{ $interac['type'] == 'depot' ? "Vous souhaitez recharger votre compte par interac. Vérifiez les informations :" : "Vous souhaiter débiter votere compte Worldsend par Interac. Vérifiez les informations :" }}
                 <ol>
                     <li class="m-2"><span class="font-semibold">{{ __('message.name') }} </span>: {{ $interac['name'] }}</li>
                     <li class="m-2"><span class="font-semibold">{{ __('Tel') }} </span>: {{ $interac['tel'] }} </li>

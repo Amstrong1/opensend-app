@@ -15,7 +15,7 @@ return [
 
     // Dashboard
     'hello' => 'Bonjour',
-    'cashin' => 'Recharger mon compte opensend',
+    'cashin' => 'Recharger mon compte worldsend',
     'cashout' => 'Effectuer un retrait',
     'transfert' => 'Transférer de l\'argent',
     'myID' => 'Voir mon identifiant',
@@ -51,19 +51,19 @@ return [
     'regard' => "Cordialement",
 
     'receiverId' => "Identifiant du destinataire",
-    'alertSend' => "Vérifiez bien les informations avant de soumettre le formulaire. Votre compte OpenSend sera débité du montant saisis. Le destinataire recevra une notification indiquant qu'il a reçu de l'argent. C'est rapide et sécurisé.",
+    'alertSend' => "Vérifiez bien les informations avant de soumettre le formulaire. Votre compte Worldsend sera débité du montant saisis. Le destinataire recevra une notification indiquant qu'il a reçu de l'argent. C'est rapide et sécurisé.",
 
     'success' => "Opération éffectuée avec succès",
     'continue' => "Continuer",
 
     'copy' => "Copier",
-    'uuidDesc' => "Votre UUID représente votre identifiant OpenSend unique. Elle vous permet de sécuriser votre compte et de recevoir des transferts.",
+    'uuidDesc' => "Votre UUID représente votre identifiant Worldsend unique. Elle vous permet de sécuriser votre compte et de recevoir des transferts.",
 
-    'withdrawDesc' => "Vérifiez bien les informations avant de soumettre le formulaire. Votre compte OpenSend sera débité du montant saisis. Vous pouvez le récupérer en espèce auprès du partenaire agréé. C'est rapide et sécurisé.",
+    'withdrawDesc' => "Vérifiez bien les informations avant de soumettre le formulaire. Votre compte Worldsend sera débité du montant saisis. Vous pouvez le récupérer en espèce auprès du partenaire agréé. C'est rapide et sécurisé.",
 
     'password' => "Mot de passe",
     'currency' => "Devise",
-    'partner' => "ID Opensend du partenaire Agréé",
+    'partner' => "ID Worldsend du partenaire Agréé",
 
     'home' => 'Accueil',
     'history' => 'Historique',
@@ -128,7 +128,7 @@ return [
     
     'received' => "Vous avez recu une somme de ",
     'sent' => "Vous avez envoyé une somme de ",
-    'thank' => "Merci d'utiliser OpenSend",
+    'thank' => "Merci d'utiliser Worldsend",
     'of' => " de ",
     
     'bank' => "Banque",

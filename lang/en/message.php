@@ -15,7 +15,7 @@ return [
 
     // Dashboard
     'hello' => 'Hello',
-    'cashin' => 'Reload my OpenSend account',
+    'cashin' => 'Reload my Worldsend account',
     'cashout' => 'Withdraw funds',
     'transfert' => 'Transfer money',
     'myID' => 'View my ID',
@@ -51,19 +51,19 @@ return [
     'regard' => "Best regards",
 
     'receiverId' => "Recipient's ID",
-    'alertSend' => "Double-check the information before submitting the form. Your OpenSend account will be debited with the entered amount. The recipient will receive a notification indicating they have received money. It's fast and secure.",
+    'alertSend' => "Double-check the information before submitting the form. Your Worldsend account will be debited with the entered amount. The recipient will receive a notification indicating they have received money. It's fast and secure.",
 
     'success' => "Operation completed successfully",
     'continue' => "Continue",
 
     'copy' => "Copy",
-    'uuidDesc' => "Your UUID represents your unique OpenSend identifier. It allows you to secure your account and receive transfers.",
+    'uuidDesc' => "Your UUID represents your unique Worldsend identifier. It allows you to secure your account and receive transfers.",
 
-    'withdrawDesc' => "Double-check the information before submitting the form. Your OpenSend account will be debited with the entered amount. You can withdraw it in cash from an authorized partner. It's fast and secure.",
+    'withdrawDesc' => "Double-check the information before submitting the form. Your Worldsend account will be debited with the entered amount. You can withdraw it in cash from an authorized partner. It's fast and secure.",
 
     'password' => "Password",
     'currency' => "Currency",
-    'partner' => "OpenSend ID of the Authorized Partner",
+    'partner' => "Worldsend ID of the Authorized Partner",
 
     'home' => 'Home',
     'history' => 'History',

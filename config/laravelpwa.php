@@ -1,10 +1,10 @@
 <?php
 
 return [
-    'name' => 'OpenSend',
+    'name' => 'Worldsend',
     'manifest' => [
         'name' => env('APP_NAME', 'My PWA App'),
-        'short_name' => 'OpenSend',
+        'short_name' => 'Worldsend',
         'start_url' => '/',
         'background_color' => '#ffffff',
         'theme_color' => '#000000',
@@ -59,7 +59,7 @@ return [
         ],
         'shortcuts' => [
             [
-                'name' => 'OpenSend',
+                'name' => 'Worldsend',
                 'description' => 'Transfert moins couteux',
                 'url' => '/',
                 'icons' => [
