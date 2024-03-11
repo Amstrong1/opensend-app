@@ -116,7 +116,7 @@
             </button> --}}
 
     <x-modal class="m-4" name="topup-modal" :show="$errors->isNotEmpty()" focusable>
-        <form id="topup" action="{{ route("stripeSession") }}" onsubmit="return checkPayment()" method="post">
+        <form id="topup" action="{{ route('stripeSession') }}" onsubmit="return checkPayment()" method="post">
             @csrf
             <div class="m-6">
                 <x-input-label for="payment_method" value="{{ __('message.mPayment') }}"
@@ -127,7 +127,9 @@
                     <option value="">{{ __('Choisir une méthode de paiement') }}</option>
                     <option value="stripe">{{ __('message.vCard') }}</option>
                     <option value="kkiapay">{{ __('Mobile Money') }}</option>
-                    <option value="interac">{{ __('Interac') }}</option>
+                    @if (Auth::user()->country === 'Canada')
+                        <option value="interac">{{ __('Interac') }}</option>
+                    @endif
                 </select>
 
                 <x-input-error :messages="$errors->get('payment_method')" class="mt-2" />

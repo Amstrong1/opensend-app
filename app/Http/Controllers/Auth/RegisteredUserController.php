@@ -19,44 +19,80 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        $pays = [
-            'Africa' => [
-                'Benin' => 'Benin',
-                'Burkina Faso' => 'Burkina Faso',
-                'Cape Verde' => 'Cape Verde',
-                'Côte d\'Ivoire' => 'Côte d\'Ivoire',
-                'Gambia' => 'Gambia',
-                'Ghana' => 'Ghana',
-                'Guinea' => 'Guinea',
-                'Guinea-Bissau' => 'Guinea-Bissau',
-                'Liberia' => 'Liberia',
-                'Mali' => 'Mali',
-                'Mauritania' => 'Mauritania',
-                'Niger' => 'Niger',
-                'Nigeria' => 'Nigeria',
-                'Senegal' => 'Senegal',
-                'Sierra Leone' => 'Sierra Leone',
-                'Togo' => 'Togo',
-            ],
+        if (app()->getLocale() == 'fr') {
+            $pays = [
+                // 'Africa' => [
+                //     'Benin' => 'Benin',
+                //     'Burkina Faso' => 'Burkina Faso',
+                //     'Cape Verde' => 'Cape Verde',
+                //     'Côte d\'Ivoire' => 'Côte d\'Ivoire',
+                //     'Gambia' => 'Gambia',
+                //     'Ghana' => 'Ghana',
+                //     'Guinea' => 'Guinea',
+                //     'Guinea-Bissau' => 'Guinea-Bissau',
+                //     'Liberia' => 'Liberia',
+                //     'Mali' => 'Mali',
+                //     'Mauritania' => 'Mauritania',
+                //     'Niger' => 'Niger',
+                //     'Nigeria' => 'Nigeria',
+                //     'Senegal' => 'Senegal',
+                //     'Sierra Leone' => 'Sierra Leone',
+                //     'Togo' => 'Togo',
+                // ],
 
-            'Europe' => [
-                'Austria' => 'Austria',
-                'Belgium' => 'Belgium',
-                'France' => 'France',
-                'Germany' => 'Germany',
-                'Ireland' => 'Ireland',
-                'Luxembourg' => 'Luxembourg',
-                'Netherlands' => 'Netherlands',
-                'Switzerland' => 'Switzerland',
-                'United Kingdom' => 'United Kingdom',
-            ],
+                'Amérique' => [
+                    'Canada' => 'Canada',
+                    'États-Unis d\'Amérique' => 'États-Unis d\'Amérique',
+                    'Haïti' => 'Haïti',
+                    'Mexique' => 'Mexique',
+                ],
 
-            'America' => [
-                'United States' => 'United States',
-                'Canada' => 'Canada',
-            ],
+                'Europe' => [
+                    'Allemagne' => 'Allemagne',
+                    'Autriche' => 'Autriche',
+                    'Belgique' => 'Belgique',
+                    'Chypre' => 'Chypre',
+                    'Espagne' => 'Espagne',
+                    'France' => 'France',
+                    'Grèce' => 'Grèce',
+                    'Norvège' => 'Norvège',
+                    'Pologne' => 'Pologne',
+                    'Portugal' => 'Portugal',
+                    'Royaume-Uni' => 'Royaume-Uni',
+                    'Russie' => 'Russie',
+                    'Suède' => 'Suède',
+                    'Suisse' => 'Suisse',
+                    'Turquie' => 'Turquie',
+                ],
 
-        ];
+            ];
+        } else {
+            $pays = [
+                "America" => [
+                    "Canada" => "Canada",
+                    "United States of America" => "United States of America",
+                    "Haiti" => "Haiti",
+                    "Mexico" => "Mexico"
+                ],
+                "Europe" => [
+                    "Germany" => "Germany",
+                    "Austria" => "Austria",
+                    "Belgium" => "Belgium",
+                    "Cyprus" => "Cyprus",
+                    "Spain" => "Spain",
+                    "France" => "France",
+                    "Greece" => "Greece",
+                    "Norway" => "Norway",
+                    "Poland" => "Poland",
+                    "Portugal" => "Portugal",
+                    "United Kingdom" => "United Kingdom",
+                    "Russia" => "Russia",
+                    "Sweden" => "Sweden",
+                    "Switzerland" => "Switzerland",
+                    "Turkey" => "Turkey"
+                ]
+            ];
+        }
 
         return view('auth.register', ['pays' => $pays]);
     }
@@ -97,13 +133,13 @@ class RegisteredUserController extends Controller
 
         // $request->session()->put('code', $user->code);
 
-        event(new Registered($user));        
+        event(new Registered($user));
 
         $admins = User::where('role', 'admin')->get();
-        foreach($admins as $admin) {
+        foreach ($admins as $admin) {
             $admin->notify(new \App\Notifications\NewUserNotification($user));
         }
-        
+
         // Auth::login($user);
 
         return redirect('confirm');

@@ -123,20 +123,34 @@
     function setCurrency(obj) {
         var label = obj.selectedOptions[0].parentElement.label,
             country = obj.selectedOptions[0].value;
-        if (label === "Africa") {
-            document.getElementById('currency').value = 'XOF';
-        }
+        // if (label === "Africa") {
+        //     document.getElementById('currency').value = 'XOF';
+        // }
         if (label === "Europe") {
             document.getElementById('currency').value = 'EUR';
         }
-        if (country === "United Kingdom") {
+        if (country === "United Kingdom" || country === "Royaume-Uni") {
             document.getElementById('currency').value = 'GBP';
         } else if (country === "Canada") {
             document.getElementById('currency').value = 'CAD';
-        } else if (country === "United States") {
+        } else if (country === "États-Unis d'Amérique"  || country==="United States of America") {
             document.getElementById('currency').value = 'USD';
-        } else if (country === "Switzerland") {
+        } else if (country === "Switzerland"  || country==="Suisse") {
             document.getElementById('currency').value = 'CHF';
+        } else if (country === "Russia"  || country==="Russie") {
+            document.getElementById('currency').value = 'RUB';
+        } else if (country === "Poland"  || country==="Pologne") {
+            document.getElementById('currency').value = 'PLN';
+        } else if (country === "Norway"  || country==="Norvège") {
+            document.getElementById('currency').value = 'NOK';
+        } else if (country === "Sweden"  || country==="Suède") {
+            document.getElementById('currency').value = 'SEK';
+        } else if (country === "Turkey"  || country==="Turquie") {
+            document.getElementById('currency').value = 'TRY';
+        } else if (country === "Haïti"  || country==="Haiti") {
+            document.getElementById('currency').value = 'HTG';
+        } else if (country === "Mexique"  || country==="Mexico") {
+            document.getElementById('currency').value = 'MXN';
         }
     }
 </script>

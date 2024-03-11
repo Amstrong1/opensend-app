@@ -24,8 +24,8 @@
             </div>
             <div class="mt-4">
                 <x-input-label for="country" :value="__('message.country')" />
-                <x-text-input id="country" class="block mt-1 w-full" type="text" name="country" :value="old('country')"
-                    required autofocus />
+                <x-text-input id="country" class="block mt-1 w-full" type="text" name="country" :value="Canada"
+                    required readonly />
                 <x-input-error :messages="$errors->get('country')" class="mt-2" />
             </div>
             <div class="mt-4">
