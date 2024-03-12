@@ -116,7 +116,7 @@ class RegisteredUserController extends Controller
         ]);
 
         $fileName = time() . '.' . $request->cid->extension();
-        $path = $request->file('cid')->storeAs('images', $fileName, 'public');
+        $request->cid->move(public_path('uploads'), $fileName);
 
         $user = User::create([
             'name' => $request->name,
@@ -125,7 +125,7 @@ class RegisteredUserController extends Controller
             'country' => $request->country,
             'city' => $request->city,
             'address' => $request->address,
-            'cid' => $path,
+            'cid' => $fileName,
             'currency' => $request->currency,
             'openid' => Str::orderedUuid(),
             'password' => Hash::make($request->password),
